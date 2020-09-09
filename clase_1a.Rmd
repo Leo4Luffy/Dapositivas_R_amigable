@@ -55,6 +55,8 @@ xaringanExtra::use_share_again()
 include_graphics('img/al_principio_pero_ahora.jpg')
 ```
 
+<section style="text-align: center;"><small>Ilustracíon hecha por <font color = "black"><u>@allison_horst</u></font>.</small></section>
+
 Los lenguajes de programación como el `R` no son sencillos de aprender, pero con trabajo y motivación verá como en poco tiempo se lograrán grandes avances.
 
 ---
@@ -111,7 +113,7 @@ include_graphics('img/objetos_R.png')
 
 --
 
-+ El intérprete del `R` está disponible en muchas plataformas (como Linux y Windows), por lo que el `R`  podrá ejecutarse en muchos computadores.
++ El intérprete del `R` está disponible en __muchas plataformas__ (como Linux y Windows), por lo que el `R`  podrá ejecutarse en muchos computadores.
 
 ---
 
@@ -134,7 +136,7 @@ background-size: 14%
 .pull-right[
 .center[
 ```{r echo = FALSE, out.width = "80%"}
-knitr::include_graphics("img/Encuentro_R.jpg")
+knitr::include_graphics("img/Rday.jpg")
 ```
 ]
 ]
