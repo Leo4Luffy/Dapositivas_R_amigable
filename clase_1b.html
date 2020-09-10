@@ -207,7 +207,386 @@ starwars
 
 &lt;P align="justify"&gt;Los paquetes en `R` consisten de una colección de funciones desarrollados por personas que hacen parte de la comunidad del `R`. Cada paquete puede contener, además de funciones, conjuntos de datos y documentación de como llevar a cabo su uso.&lt;/p&gt;
 
-&lt;P align="justify"&gt;En caso de que se desee acceder a la descripción de un paquete del `R`, se pueden emplear dos funciones: `packageDescription()` y `help()`.&lt;/p&gt;
+&lt;P align="justify"&gt;En caso de que se desee acceder a la descripción de un paquete del `R`, se pueden emplear la función `packageDescription()`.&lt;/p&gt;
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+&lt;P align="justify"&gt;🤔 Haciendo uso de la función `packageDescription()`, intente por favor acceder a la descripción del paquete `dplyr`.&lt;/p&gt;
+
+&lt;P align="justify"&gt;❓ Qué versión del paquete `dplyr` de acuerdo a su descripción tiene instalado?&lt;/p&gt;
+]
+
+.pull-right[
+.center[
+&lt;img src="img/practica.jpg" width="34%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+
+```r
+packageDescription('dplyr')
+```
+]
+
+.panel[.panel-name[Respuesta]
+&lt;P align="justify"&gt;🔍 La versión del paquete `dplyr` de acuerdo a su descripción, corresponde a la verión 1.0.2.&lt;/p&gt;
+
+&lt;P align="justify"&gt;⚠️ La versión de un paquete en `R` puede variar, debido en muchas ocasiones a posibles mejoras. Para actualizar un paquete en `R`, se puede usar la función `update.packages()`.&lt;/p&gt;
+]
+
+]
+
+---
+
+# Los paquetes en `R`
+
+&lt;P align="justify"&gt;Los paquetes en `R` consisten de una colección de funciones desarrollados por personas que hacen parte de la comunidad del `R`. Cada paquete puede contener, además de funciones, conjuntos de datos y documentación de como llevar a cabo su uso.&lt;/p&gt;
+
+&lt;P align="justify"&gt;Otras funciones que permiten la gestión de los paquetes instalados del `R` son:&lt;/p&gt;
+
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#cnvcyfkkdl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#cnvcyfkkdl .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#cnvcyfkkdl .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#cnvcyfkkdl .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#cnvcyfkkdl .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#cnvcyfkkdl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#cnvcyfkkdl .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#cnvcyfkkdl .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#cnvcyfkkdl .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#cnvcyfkkdl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#cnvcyfkkdl .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#cnvcyfkkdl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#cnvcyfkkdl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#cnvcyfkkdl .gt_row {
+  padding: 8px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#cnvcyfkkdl .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#cnvcyfkkdl .gt_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 8px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#cnvcyfkkdl .gt_grand_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* grand_summary_row.background.color */
+  padding: 8px;
+  /* grand_summary_row.padding */
+  text-transform: inherit;
+  /* grand_summary_row.text_transform */
+}
+
+#cnvcyfkkdl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#cnvcyfkkdl .gt_first_grand_summary_row {
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #A8A8A8;
+}
+
+#cnvcyfkkdl .gt_table_body {
+  border-top-style: solid;
+  /* table_body.border.top.style */
+  border-top-width: 2px;
+  /* table_body.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table_body.border.top.color */
+  border-bottom-style: solid;
+  /* table_body.border.bottom.style */
+  border-bottom-width: 2px;
+  /* table_body.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* table_body.border.bottom.color */
+}
+
+#cnvcyfkkdl .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#cnvcyfkkdl .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#cnvcyfkkdl .gt_center {
+  text-align: center;
+}
+
+#cnvcyfkkdl .gt_left {
+  text-align: left;
+}
+
+#cnvcyfkkdl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#cnvcyfkkdl .gt_font_normal {
+  font-weight: normal;
+}
+
+#cnvcyfkkdl .gt_font_bold {
+  font-weight: bold;
+}
+
+#cnvcyfkkdl .gt_font_italic {
+  font-style: italic;
+}
+
+#cnvcyfkkdl .gt_super {
+  font-size: 65%;
+}
+
+#cnvcyfkkdl .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="cnvcyfkkdl" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Función</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Descripción</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_left'>installed.packages()</td>
+<td class='gt_row gt_left'>Permite ver los paquetes que se tienen instalados.</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>remove.packages()</td>
+<td class='gt_row gt_left gt_striped'>Permite eliminar algún paquete ya instalado.</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>old.packages()</td>
+<td class='gt_row gt_left'>Permite comprobar que paquetes necesitan ser actualizados.</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>update.packages()</td>
+<td class='gt_row gt_left gt_striped'>Permite actualizar los paquetes instalados.</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div>
+
+---
+
+# El directorio de trabajo en `R` y el trabajo con proyectos
+
+&lt;P align="justify"&gt;Un directorio de trabajo en `R` es el lugar del computador en el que se encuentran los archivos con los que se esta trabajando, y en el que el programa buscara el archivo que se desea importar o exportar.&lt;/p&gt;
+
+.center[
+&lt;img src="img/dir_trabajo.png" width="44%" /&gt;
+]
+
+&lt;P align="justify"&gt;El programa `R` cuenta con dos funciones que permiten encontrar el directorio en el que se esta trabajando y cambiar el directorio de trabajo en el que se desea trabajar: las funciones `getwd()` y `setwd()`.&lt;/p&gt;
+
+---
+
+# El directorio de trabajo en `R` y el trabajo con proyectos
+
+&lt;P align="justify"&gt;Sin embargo al usar las funciones `getwd()` y `setwd()`, es practicamente imposible para cualquier otra persona que no sea el autor original del código `R`, en su computadora, hacer que el código funcione en caso de que se halla usado rutas de archivo. La solución a esto consiste el trabajo con __proyectos__.&lt;/p&gt;
+
+&lt;P align="justify"&gt;Un proyecto es un directorio de trabajo designado como un archivo con extensión __.Rproj__. Cuando se abre ese proyecto, el directorio de trabajo se establecerá automáticamente en la carpeta donde se encuentra ese archivo.&lt;/p&gt;
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+&lt;P align="justify"&gt;🤔 Intente por favor crear un proyecto en su computadora. Es facil, siga los siguentes pasos:&lt;/p&gt;
+
+.center[
+
+&lt;code class ='r hljs remark-code'&gt;&lt;span style='color:cyan'&gt;File&lt;/span&gt; → &lt;span style='color:red'&gt;New Project...&lt;/span&gt;&lt;/code&gt;
+]
+
+]
+
+.pull-right[
+
+.center[
+&lt;img src="img/practica.jpg" width="27%" /&gt;
+]
+
+]
+
+]
+
+]
+
+---
+
+# El directorio de trabajo en `R` y el trabajo con proyectos
+
+.center[
+&lt;img src="img/Proyectos.jpg" width="56%" /&gt;
+
+&lt;section style="text-align: center;"&gt;&lt;small&gt;Ilustracíon hecha por &lt;font color = "black"&gt;&lt;u&gt;@allison_horst&lt;/u&gt;&lt;/font&gt;.&lt;/small&gt;&lt;/section&gt;
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
