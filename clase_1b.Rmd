@@ -308,7 +308,7 @@ knitr::include_graphics("img/dir_trabajo.png")
 .panel[.panel-name[Ejemplo]
 
 .pull-left[
-<P align="justify">`r emo::ji("thinking")` Intente por favor crear un proyecto en su computadora. Es facil, siga los siguentes pasos:</p>
+<P align="justify">`r emo::ji("thinking")` Intente por favor crear un proyecto en su computadora. Es fácil, siga los siguentes pasos:</p>
 
 .center[
 ```{r across-spec-color-coded, echo = FALSE}
