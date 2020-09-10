@@ -57,7 +57,7 @@ include_graphics('img/al_principio_pero_ahora.jpg')
 
 <section style="text-align: center;"><small>Ilustracíon hecha por <font color = "black"><u>@allison_horst</u></font>.</small></section>
 
-Los lenguajes de programación como el `R` no son sencillos de aprender, pero con trabajo y motivación verá como en poco tiempo se lograrán grandes avances.
+<P align="justify">Los lenguajes de programación como el `R` no son sencillos de aprender, pero con trabajo y motivación verá como en poco tiempo se lograrán grandes avances.</p>
 
 ---
 class: inverse
@@ -66,23 +66,23 @@ class: inverse
 
 --
 
-- ***Revisaremos*** algunas características del programa `R` que es compartida por otros lenguajes de programación.
+- <P align="justify">***Revisaremos*** algunas características del programa `R` que es compartida por otros lenguajes de programación.</p>
 
 <br>
 --
 
-- ***Hablaremos*** sobre ¿por qué usar el `R`?, donde se introducira la importancia de la comunidad del `R`.
+- <P align="justify">***Hablaremos*** sobre ¿por qué usar el `R`?, donde se introducira la importancia de la comunidad del `R`.</p>
 
 <br>
 --
 
-- ***Aprenderemos*** sobre como se debe instalar tanto el `R` base como el RStudio.
+- <P align="justify">***Aprenderemos*** sobre como se debe instalar tanto el `R` base como el RStudio.</p>
 
 ---
 
 # El lenguaje de programación `R`
 
-El `R` es un programa para el análisis estadístico, creado en el año de 1902 por Robert Gentleman y Ross Ihaka. Ambos creadores de este programa le dieron el nombre de `R` al lenguaje implementado por las iniciales de sus nombres (a modo de broma).
+<P align="justify">El `R` es un programa para el análisis estadístico, creado en el año de 1902 por Robert Gentleman y Ross Ihaka. Ambos creadores de este programa le dieron el nombre de `R` al lenguaje implementado por las iniciales de sus nombres (a modo de broma).</p>
 
 <br>
 
@@ -99,12 +99,11 @@ Algunas características del lenguaje de programación `R` son:
 
 --
 
-+ Es un Lenguaje de programación __interpretado__, debido a que se ejecuta usando
-un programa intermedio llamado __intérprete__ (RStudio preferiblemente).
++ <P align="justify">Es un Lenguaje de programación __interpretado__, debido a que se ejecuta usando un programa intermedio llamado __intérprete__ (RStudio preferiblemente).</p>
 
 --
 
-+ Es un lenguaje de programación __orientado a objetos__.
++ <P align="justify">Es un lenguaje de programación __orientado a objetos__.</p>
 
 ```{r, eval = TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width = '280'}
 
@@ -113,7 +112,7 @@ include_graphics('img/objetos_R.png')
 
 --
 
-+ El intérprete del `R` está disponible en __muchas plataformas__ (como Linux y Windows), por lo que el `R`  podrá ejecutarse en muchos computadores.
++ <P align="justify">El intérprete del `R` está disponible en __muchas plataformas__ (como Linux y Windows), por lo que el `R`  podrá ejecutarse en muchos computadores.</p>
 
 ---
 
@@ -125,12 +124,12 @@ background-size: 14%
 
 --
 
-+ El lenguaje de programación `R` se puede obtener y distribuir de forma gratuita, debido a que se encuentra bajo __Licencia Pública General__. Por lo tanto es un programa de código abierto y gratis.
++ <P align="justify">El lenguaje de programación `R` se puede obtener y distribuir de forma gratuita, debido a que se encuentra bajo __Licencia Pública General__. Por lo tanto es un programa de código abierto y gratis.</p>
 
 --
 
 .pull-left[
-+ El programa `R` cuenta con una __comunidad__ de usuarios alrededor del mundo.
++ <P align="justify">El programa `R` cuenta con una __comunidad__ de usuarios alrededor del mundo.</p>
 ]
 
 .pull-right[
@@ -143,7 +142,7 @@ knitr::include_graphics("img/Rday.jpg")
 
 --
 
-+ El uso del programa `R` garantiza que otro investigador pueda repetir su invetigación.
++ <P align="justify">El uso del programa `R` garantiza que otro investigador pueda repetir su invetigación (**investigación reproducible**).</p>
 
 .right[
 ```{r echo = FALSE, out.width = "40%"}
@@ -155,7 +154,27 @@ knitr::include_graphics("img/reproducibilidad.jpg")
 
 # Instalación de `R` base y de RStudio
 
-+ `R` base
+.pull-left[
+### `R` base
+<P align="justify">El programa `R` por si solo (conocido como `R` base) es el software básico que contiene el lenguaje de programación `R`. Este es mantenido por un equipo internacional de desarrolladores, los cuales permiten que el lenguaje se encuentre disponible a través de una página web conocida como la CRAN.</p>
+]
+
+.pull-right[
+### RStudio
+<P align="justify">RStudio es un software que facilita la programación en `R`. Es un entorno de desarrollo integrado (IDE) para el lenguaje de programación `R`, el cual puede incluir una consola y un editor de sintaxis que apoya la ejecución de código.</p>
+.right[
+```{r echo = FALSE, out.width = "50%"}
+knitr::include_graphics("img/RStudio_2.jpg")
+```
+<section style="text-align: center;"><small>Ilustracíon hecha por <font color = "black"><u>@allison_horst</u></font>.</small></section>
+]
+]
+
+---
+
+# Instalación de `R` base y de RStudio
+
+### `R` base
 
 ```{r echo = FALSE, out.width = "100%"}
 knitr::include_graphics("img/r_base.gif")
@@ -165,7 +184,7 @@ knitr::include_graphics("img/r_base.gif")
 
 # Instalación de `R` base y de RStudio
 
-+ `R` base
+### `R` base
 
 ```{r echo = FALSE, out.width = "80%", fig.align = 'center'}
 
@@ -176,7 +195,7 @@ knitr::include_graphics("img/consola_R_base.jpg")
 
 # Instalación de `R` base y de RStudio
 
-+ RStudio
+### RStudio
 
 ```{r echo = FALSE, out.width = "100%"}
 knitr::include_graphics("img/rstudio.gif")
@@ -186,7 +205,7 @@ knitr::include_graphics("img/rstudio.gif")
 
 # Instalación de `R` base y de RStudio
 
-+ RStudio - la fuente
+### RStudio - la fuente
 
 ```{r echo = FALSE, out.width = "100%", fig.align = 'center'}
 
@@ -197,7 +216,7 @@ knitr::include_graphics("img/source.jpg")
 
 # Instalación de `R` base y de RStudio
 
-+ RStudio - la consola
+### RStudio - la consola
 
 ```{r echo = FALSE, out.width = "100%", fig.align = 'center'}
 
@@ -208,7 +227,7 @@ knitr::include_graphics("img/console.jpg")
 
 # Instalación de `R` base y de RStudio
 
-+ RStudio - el ambiente y el historial
+### RStudio - el ambiente y el historial
 
 .pull-left[
 .center[
@@ -232,7 +251,7 @@ knitr::include_graphics("img/history.jpg")
 
 # Instalación de `R` base y de RStudio
 
-+ RStudio - los archivos, las gráficas, la ayuda y los paquetes
+### RStudio - los archivos, las gráficas, la ayuda y los paquetes
 
 .center[
 .pull-left[
