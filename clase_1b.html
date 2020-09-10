@@ -52,14 +52,99 @@ class: inverse
 
 --
 
-- ***Aprederemos*** sobre los paquetes en `R` y como instalarlos.
+- &lt;P align="justify"&gt;***Aprederemos*** sobre los paquetes en `R` y como instalarlos.&lt;/p&gt;
 
 &lt;br&gt;
 --
 
-- ***Aprenderemos*** sobre que consiste el trabajo con proyectos.
+- &lt;P align="justify"&gt;***Aprenderemos*** sobre que consiste el trabajo con proyectos.&lt;/p&gt;
 
 ---
+
+# Los paquetes en `R`
+
+&lt;P align="justify"&gt;Los paquetes en `R` consisten de una colección de funciones desarrollados por personas que hacen parte de la comunidad del `R`. Cada paquete puede contener, además de funciones, conjuntos de datos y documentación de como llevar a cabo su uso.&lt;/p&gt;
+
+&lt;P align="justify"&gt;Existen dos formas de instalar nuevos paquetes en `R`:&lt;/p&gt;
+
++ Descargarlos de la CRAN, por medio de la función `install.packages()`.
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+&lt;P align="justify"&gt;Por medio de la función `install.packages()`, intente por favor instalar los paquetes `tidyr`, `dplyr` y `ggplot2`.&lt;/p&gt;
+]
+
+.pull-right[
+.center[
+&lt;img src="img/practica.jpg" width="34%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+
+```r
+install.packages('tidyr', 'dplyr', 'ggplot2')
+```
+]
+
+]
+
+---
+
+# Los paquetes en `R`
+
+&lt;P align="justify"&gt;Los paquetes en `R` consisten de una colección de funciones desarrollados por personas que hacen parte de la comunidad del `R`. Cada paquete puede contener, además de funciones, conjuntos de datos y documentación de como llevar a cabo su uso.&lt;/p&gt;
+
+&lt;P align="justify"&gt;Existen dos formas de instalar nuevos paquetes en `R`:&lt;/p&gt;
+
++ &lt;P align="justify"&gt;Usando el paquete `devtools`, el cual permite instalar paquetes alojados en distintos servidores, como [Bioconductor](https://www.bioconductor.org/) (`install_bioc()`), [CRAN](https://cran.r-project.org/index.html) (`install_cran()`), [git](https://git-scm.com/) (`install_git()`) y [GitHub](https://github.com/) (`install_github()`).&lt;/p&gt;
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+&lt;P align="justify"&gt;Por medio del paquete `devtools`, intente por favor instalar el paquete `dplyr`.&lt;/p&gt;
+]
+
+.pull-right[
+.center[
+&lt;img src="img/practica.jpg" width="28%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+
+```r
+install.packages('devtools')
+devtools::install_github('tidyverse/dplyr')
+```
+]
+
+]
+
+---
+
+# Los paquetes en `R`
+
+&lt;P align="justify"&gt;Los paquetes en `R` consisten de una colección de funciones desarrollados por personas que hacen parte de la comunidad del `R`. Cada paquete puede contener, además de funciones, conjuntos de datos y documentación de como llevar a cabo su uso.&lt;/p&gt;
+
+&lt;P align="justify"&gt;Si se desea usar un paquete del `R` ya instalado, se pueden usar igualmente dos formas:&lt;/p&gt;
+
+---
+
+# Los paquetes en `R`
+
+&lt;P align="justify"&gt;Los paquetes en `R` consisten de una colección de funciones desarrollados por personas que hacen parte de la comunidad del `R`. Cada paquete puede contener, además de funciones, conjuntos de datos y documentación de como llevar a cabo su uso.&lt;/p&gt;
+
+&lt;P align="justify"&gt;Si se desea usar un paquete del `R` ya instalado, se pueden usar igualmente dos formas:&lt;/p&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

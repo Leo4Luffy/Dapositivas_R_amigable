@@ -55,13 +55,100 @@ class: inverse
 
 --
 
-- ***Aprederemos*** sobre los paquetes en `R` y como instalarlos.
+- <P align="justify">***Aprederemos*** sobre los paquetes en `R` y como instalarlos.</p>
 
 <br>
 --
 
-- ***Aprenderemos*** sobre que consiste el trabajo con proyectos.
+- <P align="justify">***Aprenderemos*** sobre que consiste el trabajo con proyectos.</p>
 
 ---
 
+# Los paquetes en `R`
 
+<P align="justify">Los paquetes en `R` consisten de una colección de funciones desarrollados por personas que hacen parte de la comunidad del `R`. Cada paquete puede contener, además de funciones, conjuntos de datos y documentación de como llevar a cabo su uso.</p>
+
+<P align="justify">Existen dos formas de instalar nuevos paquetes en `R`:</p>
+
++ Descargarlos de la CRAN, por medio de la función `install.packages()`.
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+<P align="justify">Por medio de la función `install.packages()`, intente por favor instalar los paquetes `tidyr`, `dplyr` y `ggplot2`.</p>
+]
+
+.pull-right[
+.center[
+```{r, echo = FALSE, out.width = "34%"}
+knitr::include_graphics("img/practica.jpg")
+```
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+```{r, eval = FALSE}
+
+install.packages('tidyr', 'dplyr', 'ggplot2')
+```
+]
+
+]
+
+---
+
+# Los paquetes en `R`
+
+<P align="justify">Los paquetes en `R` consisten de una colección de funciones desarrollados por personas que hacen parte de la comunidad del `R`. Cada paquete puede contener, además de funciones, conjuntos de datos y documentación de como llevar a cabo su uso.</p>
+
+<P align="justify">Existen dos formas de instalar nuevos paquetes en `R`:</p>
+
++ <P align="justify">Usando el paquete `devtools`, el cual permite instalar paquetes alojados en distintos servidores, como [Bioconductor](https://www.bioconductor.org/) (`install_bioc()`), [CRAN](https://cran.r-project.org/index.html) (`install_cran()`), [git](https://git-scm.com/) (`install_git()`) y [GitHub](https://github.com/) (`install_github()`).</p>
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+<P align="justify">Por medio del paquete `devtools`, intente por favor instalar el paquete `dplyr`.</p>
+]
+
+.pull-right[
+.center[
+```{r, echo = FALSE, out.width = "28%"}
+knitr::include_graphics("img/practica.jpg")
+```
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+```{r, eval = FALSE}
+
+install.packages('devtools')
+devtools::install_github('tidyverse/dplyr')
+```
+]
+
+]
+
+---
+
+# Los paquetes en `R`
+
+<P align="justify">Los paquetes en `R` consisten de una colección de funciones desarrollados por personas que hacen parte de la comunidad del `R`. Cada paquete puede contener, además de funciones, conjuntos de datos y documentación de como llevar a cabo su uso.</p>
+
+<P align="justify">Si se desea usar un paquete del `R` ya instalado, se pueden usar igualmente dos formas:</p>
+
+---
+
+# Los paquetes en `R`
+
+<P align="justify">Los paquetes en `R` consisten de una colección de funciones desarrollados por personas que hacen parte de la comunidad del `R`. Cada paquete puede contener, además de funciones, conjuntos de datos y documentación de como llevar a cabo su uso.</p>
+
+<P align="justify">Si se desea usar un paquete del `R` ya instalado, se pueden usar igualmente dos formas:</p>
