@@ -57,7 +57,7 @@ class: inverse
 
 --
 
-- <P align="justify">***Aprederemos*** sobre los paquetes en `R` y como instalarlos.</p>
+- <P align="justify">***Aprenderemos*** sobre los paquetes en `R` y como instalarlos.</p>
 
 <br>
 --
