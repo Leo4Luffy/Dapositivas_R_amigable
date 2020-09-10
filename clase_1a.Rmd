@@ -1,6 +1,6 @@
 ---
 title: "¿Qué es el lenguaje de programación R y por qué usarlo?"
-subtitle: "`dplyr`"
+subtitle: ""
 author: ""
 instution: "U de A"
 output:

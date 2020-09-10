@@ -1,0 +1,67 @@
+---
+title: "Los paquetes en R y el trabajo con proyectos"
+subtitle: ""
+author: ""
+instution: "U de A"
+output:
+  xaringan::moon_reader:
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: center
+
+background-image: url(img/Proyectos.png)
+background-position: 50% 80%
+background-size: 50%
+
+# Los paquetes en `R` y el trabajo
+# con proyectos
+
+```{r setup, echo=FALSE}
+
+library(xaringanExtra)
+library(flair)
+library(knitr)
+```
+
+```{r xaringan-panelset, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+
+```{css, echo=FALSE}
+pre {
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+.inverse {
+  background-color: #272822;
+  color: #d6d6d6;
+  text-shadow: 0 0 20px #333;
+}
+```
+
+```{r xaringanExtra-share-again, echo=FALSE}
+xaringanExtra::use_share_again()
+```
+
+---
+class: inverse
+
+# Objetivos de la lección
+
+--
+
+- ***Aprederemos*** sobre los paquetes en `R` y como instalarlos.
+
+<br>
+--
+
+- ***Aprenderemos*** sobre que consiste el trabajo con proyectos.
+
+---
+
+
