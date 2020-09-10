@@ -74,7 +74,7 @@ class: inverse
 .panel[.panel-name[Ejemplo]
 
 .pull-left[
-&lt;P align="justify"&gt;Por medio de la función `install.packages()`, intente por favor instalar los paquetes `tidyr`, `dplyr` y `ggplot2`.&lt;/p&gt;
+&lt;P align="justify"&gt;🤔 Por medio de la función `install.packages()`, intente por favor instalar los paquetes `tidyr`, `dplyr` y `ggplot2`.&lt;/p&gt;
 ]
 
 .pull-right[
@@ -109,7 +109,7 @@ install.packages('tidyr', 'dplyr', 'ggplot2')
 .panel[.panel-name[Ejemplo]
 
 .pull-left[
-&lt;P align="justify"&gt;Por medio del paquete `devtools`, intente por favor instalar el paquete `dplyr`.&lt;/p&gt;
+&lt;P align="justify"&gt;🤔 Por medio del paquete `devtools`, intente por favor instalar el paquete `dplyr`.&lt;/p&gt;
 ]
 
 .pull-right[
@@ -138,6 +138,33 @@ devtools::install_github('tidyverse/dplyr')
 
 &lt;P align="justify"&gt;Si se desea usar un paquete del `R` ya instalado, se pueden usar igualmente dos formas:&lt;/p&gt;
 
++ &lt;P align="justify"&gt;Por medio de la notación `nombre_paquete::nombre_función`, si se desea hacer un uso temporal del paquete.&lt;/p&gt;
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+&lt;P align="justify"&gt;🤔 Por medio de la notación anterior, intente por favor cargar temporalmente el paquete `dplyr` con el fin de acceder al conjunto de datos `starwars` de ese paquete.&lt;/p&gt;
+]
+
+.pull-right[
+.center[
+&lt;img src="img/practica.jpg" width="28%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+
+```r
+dplyr::starwars
+```
+]
+
+]
+
 ---
 
 # Los paquetes en `R`
@@ -145,6 +172,42 @@ devtools::install_github('tidyverse/dplyr')
 &lt;P align="justify"&gt;Los paquetes en `R` consisten de una colección de funciones desarrollados por personas que hacen parte de la comunidad del `R`. Cada paquete puede contener, además de funciones, conjuntos de datos y documentación de como llevar a cabo su uso.&lt;/p&gt;
 
 &lt;P align="justify"&gt;Si se desea usar un paquete del `R` ya instalado, se pueden usar igualmente dos formas:&lt;/p&gt;
+
++ &lt;P align="justify"&gt;Cargandolo usando la función `library()`, si se desea hacer un uso permanente de las funciones y otros materiales proporcionados por un paquete.&lt;/p&gt;
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+&lt;P align="justify"&gt;🤔 Haciendo uso de la función `library()`, intente por favor cargar el paquete `dplyr` y posteriormente acceder al conjunto de datos `starwars`.&lt;/p&gt;
+]
+
+.pull-right[
+.center[
+&lt;img src="img/practica.jpg" width="24%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+
+```r
+library(dplyr)
+starwars
+```
+]
+
+]
+
+---
+
+# Los paquetes en `R`
+
+&lt;P align="justify"&gt;Los paquetes en `R` consisten de una colección de funciones desarrollados por personas que hacen parte de la comunidad del `R`. Cada paquete puede contener, además de funciones, conjuntos de datos y documentación de como llevar a cabo su uso.&lt;/p&gt;
+
+&lt;P align="justify"&gt;En caso de que se desee acceder a la descripción de un paquete del `R`, se pueden emplear dos funciones: `packageDescription()` y `help()`.&lt;/p&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

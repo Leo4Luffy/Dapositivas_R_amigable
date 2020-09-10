@@ -77,7 +77,7 @@ class: inverse
 .panel[.panel-name[Ejemplo]
 
 .pull-left[
-<P align="justify">Por medio de la función `install.packages()`, intente por favor instalar los paquetes `tidyr`, `dplyr` y `ggplot2`.</p>
+<P align="justify">`r emo::ji("thinking")` Por medio de la función `install.packages()`, intente por favor instalar los paquetes `tidyr`, `dplyr` y `ggplot2`.</p>
 ]
 
 .pull-right[
@@ -114,7 +114,7 @@ install.packages('tidyr', 'dplyr', 'ggplot2')
 .panel[.panel-name[Ejemplo]
 
 .pull-left[
-<P align="justify">Por medio del paquete `devtools`, intente por favor instalar el paquete `dplyr`.</p>
+<P align="justify">`r emo::ji("thinking")` Por medio del paquete `devtools`, intente por favor instalar el paquete `dplyr`.</p>
 ]
 
 .pull-right[
@@ -145,6 +145,36 @@ devtools::install_github('tidyverse/dplyr')
 
 <P align="justify">Si se desea usar un paquete del `R` ya instalado, se pueden usar igualmente dos formas:</p>
 
++ <P align="justify">Por medio de la notación `nombre_paquete::nombre_función`, si se desea hacer un uso temporal del paquete.</p>
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+<P align="justify">`r emo::ji("thinking")` Por medio de la notación anterior, intente por favor cargar temporalmente el paquete `dplyr` con el fin de acceder al conjunto de datos `starwars` de ese paquete.</p>
+]
+
+.pull-right[
+.center[
+```{r, echo = FALSE, out.width = "28%"}
+
+knitr::include_graphics("img/practica.jpg")
+```
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+```{r, eval = FALSE}
+
+dplyr::starwars
+```
+]
+
+]
+
 ---
 
 # Los paquetes en `R`
@@ -152,3 +182,45 @@ devtools::install_github('tidyverse/dplyr')
 <P align="justify">Los paquetes en `R` consisten de una colección de funciones desarrollados por personas que hacen parte de la comunidad del `R`. Cada paquete puede contener, además de funciones, conjuntos de datos y documentación de como llevar a cabo su uso.</p>
 
 <P align="justify">Si se desea usar un paquete del `R` ya instalado, se pueden usar igualmente dos formas:</p>
+
++ <P align="justify">Cargandolo usando la función `library()`, si se desea hacer un uso permanente de las funciones y otros materiales proporcionados por un paquete.</p>
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+<P align="justify">`r emo::ji("thinking")` Haciendo uso de la función `library()`, intente por favor cargar el paquete `dplyr` y posteriormente acceder al conjunto de datos `starwars`.</p>
+]
+
+.pull-right[
+.center[
+```{r, echo = FALSE, out.width = "24%"}
+
+knitr::include_graphics("img/practica.jpg")
+```
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+```{r, eval = FALSE}
+
+library(dplyr)
+starwars
+```
+]
+
+]
+
+---
+
+# Los paquetes en `R`
+
+<P align="justify">Los paquetes en `R` consisten de una colección de funciones desarrollados por personas que hacen parte de la comunidad del `R`. Cada paquete puede contener, además de funciones, conjuntos de datos y documentación de como llevar a cabo su uso.</p>
+
+<P align="justify">En caso de que se desee acceder a la descripción de un paquete del `R`, se pueden emplear dos funciones: `packageDescription()` y `help()`.</p>
+
+
+
