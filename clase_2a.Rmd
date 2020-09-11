@@ -89,8 +89,8 @@ class: inverse
 .panel[.panel-name[Ejemplo 1]
 
 .pull-left[
-<P align="justify">`r emo::ji("geek")` En "código" podrá observar las formas de crear los distintos objetos en `R`.<br>
-`r emo::ji("megaphone")` Para crear un objeto que contiene un número entero, este último debe ir acompañado del sufijo "L". Si no se indica esto, el `R` asumirá se trata de un número real.
+<P align="justify">`r emo::ji("geek")` Intente por favor crear los cinco distintos objetos en `R`.<br>
+`r emo::ji("megaphone")` Tenga en cuenta que para crear un objeto que contiene un número entero, este último debe ir acompañado del sufijo "L". Si no se indica esto, el `R` asumirá que se trata de un número real.
 </p>
 ]
 
@@ -201,7 +201,7 @@ tribble(
 .panel[.panel-name[Ejemplo]
 
 .pull-left[
-<P align="justify">`r emo::ji("geek")` En "código" podrá observar las distintas formas de crear un vector en `R` con base en la tabla anterior, mientras que en "resultado" podrá observar el resultado al ejecutar cada línea de código.<br>
+<P align="justify">`r emo::ji("geek")` Intente por favor crear tres vectores: uno que contenga las letras de la `a` a la `d`, el otro que contenga los números `1` y `2` repetidos cada dos veces, y otro que contenga los números de `10` al `5`.<br>
 </p>
 ]
 
@@ -264,7 +264,7 @@ tribble(
 .panel[.panel-name[Ejemplo]
 
 .pull-left[
-<P align="justify">`r emo::ji("thinking")` .<br>
+<P align="justify">`r emo::ji("thinking")` Intente por favor realizar una operación de suma y división, usando los operadores de la tabla anterior.<br>
 </p>
 ]
 
@@ -319,7 +319,7 @@ vec_1 / vec_2
 
 # Resumen estadístico en vectores
 
-<P align="justify"></p>
+<P align="justify">El programa `R` contiene muchas funciones básicas que permiten calcular estadísticas descriptivas a partir de un vector de datos, entre ellas:</p>
 
 <small>
 
@@ -342,13 +342,78 @@ tribble(
 .panel[.panel-name[Ejemplo]
 
 .pull-left[
-<P align="justify">`r emo::ji("thinking")` .<br>
+<P align="justify">`r emo::ji("thinking")` Por medio de la función `rnorm()` intente por favor simular el peso de `12` recien nacidos. Para ello, considere un promedio de `3768` gramos, y un desvió de `572` gramos. Luego, intente usar algunas de la funciones descritas anteriormente.<br>
 </p>
 ]
 
 .pull-right[
 .center[
-```{r, echo = FALSE, out.width = "32%"}
+```{r, echo = FALSE, out.width = "30%"}
+knitr::include_graphics("img/practica.jpg")
+```
+]
+]
+]
+
+.panel[.panel-name[Código 1]
+
+```{r resumen_vector, eval = FALSE}
+
+pesos_rn <- rnorm(n = 12, mean = 3768, sd = 572)
+min(x = pesos_rn)
+mean(x = pesos_rn)
+sd(x = pesos_rn)
+```
+]
+
+.panel[.panel-name[Resultado 1]
+
+```{r ref.label = "resumen_vector", echo = FALSE, message = FALSE}
+
+```
+]
+
+.panel[.panel-name[Código 2]
+
+```{r resumen_vector_2, eval = FALSE}
+
+summary(object = pesos_rn)
+```
+]
+
+.panel[.panel-name[Resultado 2]
+
+```{r ref.label = "resumen_vector_2", echo = FALSE, message = FALSE}
+
+```
+]
+
+]
+
+---
+
+# Acceso a la información en vectores
+
+<P align="justify">Para acceder a la información contenida dentro de un vector, se puede usar un proceso conocido como __indexación__. La idexación, consiste en la selección de subconjuntos de datos por medio de un operador de selección: `[ ]`. Esta puede ser de dos tipos:</p>
+
++ Indexación numérica
+
+<P align="justify">La indexación numérica permite acceder al elemento de un vector de acuerdo a su posición. Esto a partir de la forma `a[índice]`, donde `a` corresponde al nombre del vector.</p>
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+<P align="justify">`r emo::ji("thinking")` Intente por favor crear un vector con los números del `1` al `10`. Luego a partir de ese vector, intente extraer el número que se encuentra en la posición `8`, en las posiciones `2` al `10`, y los números en las posiciones `2`, `4` y `10`.<br>
+
+
+</p>
+]
+
+.pull-right[
+.center[
+```{r, echo = FALSE, out.width = "30%"}
 knitr::include_graphics("img/practica.jpg")
 ```
 ]
@@ -357,21 +422,149 @@ knitr::include_graphics("img/practica.jpg")
 
 .panel[.panel-name[Código]
 
-```{r resumen_vector, eval = FALSE}
+```{r indexacion_vector, eval = FALSE}
 
-pesos_rn <- rnorm(n = 12, mean = 3768, sd = 572)
-min(x = pesos_rn)
-mean(x = pesos_rn)
-sd(x = pesos_rn)
-summary(object = pesos_rn)
+indice <- seq(from = 1, to = 10, by = 1)
+indice[8]
+indice[2:10]
+indice[c(2, 4, 10)]
 ```
 ]
 
 .panel[.panel-name[Resultado]
 
-```{r ref.label = "resumen_vector", echo = FALSE, message = FALSE}
+```{r ref.label = "indexacion_vector", echo = FALSE, message = FALSE}
 
 ```
 ]
 
 ]
+
+---
+
+# Acceso a la información en vectores
+
+<P align="justify">Para acceder a la información contenida dentro de un vector, se puede usar un proceso conocido como __indexación__. La idexación, consiste en la selección de subconjuntos de datos por medio de un operador de selección: `[ ]`. Esta puede ser de dos tipos:</p>
+
++ Indexación lógica
+
+<P align="justify">La indexación lógica permite acceder al elemento de un vector de acuerdo al cumplimiento de una condición impuesta. Para ello, se usan los denominados __operadores lógicos__ u operadores de comparación:</p>
+
+.pull-left[
+
+<small>
+
+```{r, echo = FALSE, eval = TRUE, message = FALSE, fig.align = 'center'}
+
+tribble(
+  ~Operador,      ~Significado,
+       '==',         'Igual a',
+       '!=',    'Diferente de',
+        '<',         'Menor a',
+       '<=', 'Menor e igual a',
+        '>',         'Mayor a',
+       '>=', 'Mayor o igual a'
+  ) %>%
+  gt()
+```
+
+</small>
+
+]
+
+.pull-right[
+<small>
+
+```{r, echo = FALSE, eval = TRUE, message = FALSE, fig.align = 'center'}
+
+tribble(
+  ~Operador,      ~Significado,
+        '|',               'ó',
+        '&',               'y',
+        '!',              'no'
+  ) %>%
+  gt()
+```
+]
+
+---
+
+# Acceso a la información en vectores
+
+<P align="justify">Para acceder a la información contenida dentro de un vector, se puede usar un proceso conocido como __indexación__. La idexación, consiste en la selección de subconjuntos de datos por medio de un operador de selección: `[ ]`. Esta puede ser de dos tipos:</p>
+
++ Indexación lógica
+
+.panelset[
+
+.panel[.panel-name[Ejemplo 1]
+
+.pull-left[
+<P align="justify">`r emo::ji("thinking")` Intente por favor crear un vector con los meses del año. Luego a partir de ese vector, intente extraer inialmente el mes de `Abril` y luego extraer todos los meses del año a excepción de ese mismo mes.<br>
+
+
+</p>
+]
+
+.pull-right[
+.center[
+```{r, echo = FALSE, out.width = "30%"}
+knitr::include_graphics("img/practica.jpg")
+```
+]
+]
+]
+
+.panel[.panel-name[Código 1]
+
+```{r indexacion_vector_2, eval = FALSE}
+
+meses <- c('Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic')
+meses[meses == 'Abr']
+meses[meses != 'Abr']
+```
+]
+
+.panel[.panel-name[Resultado 1]
+
+```{r ref.label = "indexacion_vector_2", echo = FALSE, message = FALSE}
+
+```
+]
+
+.panel[.panel-name[Ejemplo 2]
+
+.pull-left[
+<P align="justify">`r emo::ji("thinking")` Intente por favor crear un vector con los números del `-10` al `10`. Luego a partir de ese vector, intente extraer los números __estrictamente__ positivos y que sean diferentes de `4`.<br>
+
+<P align="justify">`r emo::ji("megaphone")` Recuerde que un número estrictamente positivo es aquel que es mayor a `0`.<br>
+</p>
+]
+
+.pull-right[
+.center[
+```{r, echo = FALSE, out.width = "30%"}
+knitr::include_graphics("img/ejemplo_aclaracion.jpg")
+```
+]
+]
+]
+
+.panel[.panel-name[Código 2]
+
+```{r indexacion_vector_3, eval = FALSE}
+
+numeros <- seq(from = -10, to = 10, by = 1)
+numeros[numeros > 0 & numeros != 4]
+```
+]
+
+.panel[.panel-name[Resultado 2]
+
+```{r ref.label = "indexacion_vector_3", echo = FALSE, message = FALSE}
+
+```
+]
+
+]
+
