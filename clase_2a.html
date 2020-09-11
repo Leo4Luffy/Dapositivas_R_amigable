@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Escalares y vectores</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <link href="clase_2a_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="clase_2a_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link href="clase_2a_files/panelset-0.2.3/panelset.css" rel="stylesheet" />
+    <script src="clase_2a_files/panelset-0.2.3/panelset.js"></script>
+    <script src="clase_2a_files/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="clase_2a_files/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="clase_2a_files/shareon-1.4.1/shareon.min.js"></script>
+    <link href="clase_2a_files/xaringanExtra-shareagain-0.2.3/shareagain.css" rel="stylesheet" />
+    <script src="clase_2a_files/xaringanExtra-shareagain-0.2.3/shareagain.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center
+
+background-image: url(img/escalar_vector.png)
+background-position: 50% 70%
+background-size: 34%
+
+# Escalares y vectores
+
+
+
+
+
+&lt;style type="text/css"&gt;
+pre {
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+.inverse {
+  background-color: #272822;
+  color: #d6d6d6;
+  text-shadow: 0 0 20px #333;
+}
+&lt;/style&gt;
+
+
+
+---
+class: inverse
+
+# Objetivos de la lección
+
+--
+
+- &lt;P align="justify"&gt;***Hablaremos*** sobre los objetos más simples en `R`: los escalares y los vectores.&lt;/p&gt;
+
+&lt;br&gt;
+--
+
+- &lt;P align="justify"&gt;***Aprenderemos*** sobre como realizar algunas operaciones matemáticas sencillas en vectores usando el programa `R`.&lt;/p&gt;
+
+&lt;br&gt;
+--
+
+- &lt;P align="justify"&gt;***Aprenderemos*** sobre como extraer la información de un vector usando el sistema base del `R`.&lt;/p&gt;
+
+---
+
+# Escalares
+
+&lt;P align="justify"&gt;Los escalares son el tipo de objeto más simple en `R`. Los escalares son objetos de un solo valor, sin embargo estos se pueden clasificar en cinco clases:&lt;/p&gt;
+
+&lt;small&gt;
+
++ `character` (caracteres).
++ `integer` (números enteros).
++ `double` (números reales).
++ `complex` (números complejos).
++ `logical` (lógicos o boleanos).
+
+&lt;/small&gt;
+
+.panelset[
+
+.panel[.panel-name[Ejemplo 1]
+
+.pull-left[
+&lt;P align="justify"&gt;🤓 En "código" podrá observar las formas de crear los distintos objetos en `R`.&lt;br&gt;
+📣 Para crear un objeto que contiene un número entero, este último debe ir acompañado del sufijo "L". Si no se indica esto, el `R` asumirá se trata de un número real.
+&lt;/p&gt;
+]
+
+.pull-right[
+.center[
+&lt;img src="img/ejemplo_aclaracion.jpg" width="42%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Código 1]
+
+
+```r
+a &lt;- 'Hola'
+
+b &lt;- 1L
+
+c &lt;- 12.3
+
+d &lt;- 1 + 2i
+
+e &lt;- FALSE
+```
+]
+
+.panel[.panel-name[Ejemplo 2]
+
+.pull-left[
+&lt;P align="justify"&gt;🤓 En `R` existe una función denominada `typeof()` que permite reconocer la clase de un objeto creado.&lt;br&gt;
+🤔 Intente por favor usar esa función para averiguar la clase de los objetos `a`, `b`, `c`, `d` y `e`.
+&lt;/p&gt;
+]
+
+.pull-right[
+.center[
+&lt;img src="img/practica.jpg" width="38%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Código 2]
+
+
+
+
+```r
+typeof(x = a)
+
+typeof(x = b)
+
+typeof(x = c)
+
+typeof(x = d)
+
+typeof(x = e)
+```
+]
+
+.panel[.panel-name[Resultado 2]
+
+
+```
+## [1] "character"
+```
+
+```
+## [1] "integer"
+```
+
+```
+## [1] "double"
+```
+
+```
+## [1] "complex"
+```
+
+```
+## [1] "logical"
+```
+]
+
+]
+
+---
+
+# Vectores
+
+&lt;P align="justify"&gt;Un vector consiste en una colección de escalares de __una misma clase__, ya sean estos números, caracteres o valores lógicos. En `R` existen muchas formas para crear un vector:&lt;/p&gt;
+
+&lt;small&gt;
+
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#fapmqbvlbv .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#fapmqbvlbv .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#fapmqbvlbv .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#fapmqbvlbv .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#fapmqbvlbv .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#fapmqbvlbv .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#fapmqbvlbv .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#fapmqbvlbv .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#fapmqbvlbv .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#fapmqbvlbv .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#fapmqbvlbv .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#fapmqbvlbv .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#fapmqbvlbv .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#fapmqbvlbv .gt_row {
+  padding: 8px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#fapmqbvlbv .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#fapmqbvlbv .gt_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 8px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#fapmqbvlbv .gt_grand_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* grand_summary_row.background.color */
+  padding: 8px;
+  /* grand_summary_row.padding */
+  text-transform: inherit;
+  /* grand_summary_row.text_transform */
+}
+
+#fapmqbvlbv .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#fapmqbvlbv .gt_first_grand_summary_row {
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #A8A8A8;
+}
+
+#fapmqbvlbv .gt_table_body {
+  border-top-style: solid;
+  /* table_body.border.top.style */
+  border-top-width: 2px;
+  /* table_body.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table_body.border.top.color */
+  border-bottom-style: solid;
+  /* table_body.border.bottom.style */
+  border-bottom-width: 2px;
+  /* table_body.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* table_body.border.bottom.color */
+}
+
+#fapmqbvlbv .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#fapmqbvlbv .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#fapmqbvlbv .gt_center {
+  text-align: center;
+}
+
+#fapmqbvlbv .gt_left {
+  text-align: left;
+}
+
+#fapmqbvlbv .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#fapmqbvlbv .gt_font_normal {
+  font-weight: normal;
+}
+
+#fapmqbvlbv .gt_font_bold {
+  font-weight: bold;
+}
+
+#fapmqbvlbv .gt_font_italic {
+  font-style: italic;
+}
+
+#fapmqbvlbv .gt_super {
+  font-size: 65%;
+}
+
+#fapmqbvlbv .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="fapmqbvlbv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Función</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Ejemplo</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Resultado</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_left'>c()</td>
+<td class='gt_row gt_left'>c(1, 5, 9)</td>
+<td class='gt_row gt_left'>[1, 5, 9]</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>a:b</td>
+<td class='gt_row gt_left gt_striped'>(5:10)</td>
+<td class='gt_row gt_left gt_striped'>[5, 6, 7, 8, 9, 10]</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>seq(from, to, by)</td>
+<td class='gt_row gt_left'>seq(from = 0, to = 6, by = 2)</td>
+<td class='gt_row gt_left'>[0, 2, 4, 6]</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>rep(x, times, each)</td>
+<td class='gt_row gt_left gt_striped'>rep(x = 4, times = 4)</td>
+<td class='gt_row gt_left gt_striped'>[4, 4, 4, 4]</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div>
+
+&lt;/small&gt;
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+&lt;P align="justify"&gt;🤓 En "código" podrá observar las distintas formas de crear un vector en `R` con base en la tabla anterior, mientras que en "resultado" podrá observar el resultado al ejecutar cada línea de código.&lt;br&gt;
+&lt;/p&gt;
+]
+
+.pull-right[
+.center[
+&lt;img src="img/ejemplo_aclaracion.jpg" width="32%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+
+```r
+c('a', 'b', 'c', 'd')
+
+10:5
+
+rep(x = c(1, 2), each = 2)
+```
+]
+
+.panel[.panel-name[Resultado]
+
+
+```
+## [1] "a" "b" "c" "d"
+```
+
+```
+## [1] 10  9  8  7  6  5
+```
+
+```
+## [1] 1 1 2 2
+```
+]
+
+]
+
+---
+
+# Operaciones sencillas con vectores
+
+&lt;P align="justify"&gt;Las operaciones aritméticas más comunes en `R` están definidas para vectores. Para llevar a cabo esas operaciones, el `R` proporciona un conjunto de operadores:&lt;/p&gt;
+
+&lt;small&gt;
+
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#nlwdwjkxxc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#nlwdwjkxxc .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#nlwdwjkxxc .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#nlwdwjkxxc .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#nlwdwjkxxc .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#nlwdwjkxxc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#nlwdwjkxxc .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#nlwdwjkxxc .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#nlwdwjkxxc .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#nlwdwjkxxc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#nlwdwjkxxc .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#nlwdwjkxxc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#nlwdwjkxxc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#nlwdwjkxxc .gt_row {
+  padding: 8px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#nlwdwjkxxc .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#nlwdwjkxxc .gt_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 8px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#nlwdwjkxxc .gt_grand_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* grand_summary_row.background.color */
+  padding: 8px;
+  /* grand_summary_row.padding */
+  text-transform: inherit;
+  /* grand_summary_row.text_transform */
+}
+
+#nlwdwjkxxc .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#nlwdwjkxxc .gt_first_grand_summary_row {
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #A8A8A8;
+}
+
+#nlwdwjkxxc .gt_table_body {
+  border-top-style: solid;
+  /* table_body.border.top.style */
+  border-top-width: 2px;
+  /* table_body.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table_body.border.top.color */
+  border-bottom-style: solid;
+  /* table_body.border.bottom.style */
+  border-bottom-width: 2px;
+  /* table_body.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* table_body.border.bottom.color */
+}
+
+#nlwdwjkxxc .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#nlwdwjkxxc .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#nlwdwjkxxc .gt_center {
+  text-align: center;
+}
+
+#nlwdwjkxxc .gt_left {
+  text-align: left;
+}
+
+#nlwdwjkxxc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#nlwdwjkxxc .gt_font_normal {
+  font-weight: normal;
+}
+
+#nlwdwjkxxc .gt_font_bold {
+  font-weight: bold;
+}
+
+#nlwdwjkxxc .gt_font_italic {
+  font-style: italic;
+}
+
+#nlwdwjkxxc .gt_super {
+  font-size: 65%;
+}
+
+#nlwdwjkxxc .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="nlwdwjkxxc" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Operador</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Expresión</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_left'>Suma</td>
+<td class='gt_row gt_left'>+</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Diferencia</td>
+<td class='gt_row gt_left gt_striped'>-</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Producto</td>
+<td class='gt_row gt_left'>*</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>División</td>
+<td class='gt_row gt_left gt_striped'>/</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Potencia</td>
+<td class='gt_row gt_left'>^ , **</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Residuo</td>
+<td class='gt_row gt_left gt_striped'>%%</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div>
+
+&lt;/small&gt;
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+&lt;P align="justify"&gt;🤔 .&lt;br&gt;
+&lt;/p&gt;
+]
+
+.pull-right[
+.center[
+&lt;img src="img/practica.jpg" width="16%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Código 1]
+
+
+```r
+vec_1 &lt;- c(1:8)
+vec_2 &lt;- 2
+
+vec_1 + vec_2
+```
+]
+
+.panel[.panel-name[Resultado 1]
+
+
+```
+## [1]  3  4  5  6  7  8  9 10
+```
+]
+
+.panel[.panel-name[Código 2]
+
+
+```r
+vec_1 &lt;- seq(from = 1, to = 4, by = 1)
+vec_2 &lt;- rep(x = 2, times = 4)
+
+vec_1 / vec_2
+```
+]
+
+.panel[.panel-name[Resultado 2]
+
+
+```
+## [1] 0.5 1.0 1.5 2.0
+```
+]
+
+]
+
+---
+
+# Resumen estadístico en vectores
+
+&lt;P align="justify"&gt;&lt;/p&gt;
+
+&lt;small&gt;
+
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#klkwkzozox .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#klkwkzozox .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#klkwkzozox .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#klkwkzozox .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#klkwkzozox .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#klkwkzozox .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#klkwkzozox .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#klkwkzozox .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#klkwkzozox .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#klkwkzozox .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#klkwkzozox .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#klkwkzozox .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#klkwkzozox .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#klkwkzozox .gt_row {
+  padding: 8px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#klkwkzozox .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#klkwkzozox .gt_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 8px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#klkwkzozox .gt_grand_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* grand_summary_row.background.color */
+  padding: 8px;
+  /* grand_summary_row.padding */
+  text-transform: inherit;
+  /* grand_summary_row.text_transform */
+}
+
+#klkwkzozox .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#klkwkzozox .gt_first_grand_summary_row {
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #A8A8A8;
+}
+
+#klkwkzozox .gt_table_body {
+  border-top-style: solid;
+  /* table_body.border.top.style */
+  border-top-width: 2px;
+  /* table_body.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table_body.border.top.color */
+  border-bottom-style: solid;
+  /* table_body.border.bottom.style */
+  border-bottom-width: 2px;
+  /* table_body.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* table_body.border.bottom.color */
+}
+
+#klkwkzozox .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#klkwkzozox .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#klkwkzozox .gt_center {
+  text-align: center;
+}
+
+#klkwkzozox .gt_left {
+  text-align: left;
+}
+
+#klkwkzozox .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#klkwkzozox .gt_font_normal {
+  font-weight: normal;
+}
+
+#klkwkzozox .gt_font_bold {
+  font-weight: bold;
+}
+
+#klkwkzozox .gt_font_italic {
+  font-style: italic;
+}
+
+#klkwkzozox .gt_super {
+  font-size: 65%;
+}
+
+#klkwkzozox .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="klkwkzozox" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Función</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Ejemplo</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Resultado</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_left'>min(x), max(x)</td>
+<td class='gt_row gt_left'>min(x = 1:10)</td>
+<td class='gt_row gt_left'>1</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>mean(x), median(x)</td>
+<td class='gt_row gt_left gt_striped'>mean(x = 1:10)</td>
+<td class='gt_row gt_left gt_striped'>5.5</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>sd(x), var(x), range(x)</td>
+<td class='gt_row gt_left'>sd(x = 1:10)</td>
+<td class='gt_row gt_left'>3.03</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>summary(object)</td>
+<td class='gt_row gt_left gt_striped'>summary(object = 1:10)</td>
+<td class='gt_row gt_left gt_striped'>min = 1.00... Max = 10.0</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div>
+
+&lt;/small&gt;
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+&lt;P align="justify"&gt;🤔 .&lt;br&gt;
+&lt;/p&gt;
+]
+
+.pull-right[
+.center[
+&lt;img src="img/practica.jpg" width="32%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+
+```r
+pesos_rn &lt;- rnorm(n = 12, mean = 3768, sd = 572)
+min(x = pesos_rn)
+mean(x = pesos_rn)
+sd(x = pesos_rn)
+summary(object = pesos_rn)
+```
+]
+
+.panel[.panel-name[Resultado]
+
+
+```
+## [1] 2670.057
+```
+
+```
+## [1] 3748.955
+```
+
+```
+## [1] 690.1167
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    2670    3302    3718    3749    4229    4810
+```
+]
+
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
