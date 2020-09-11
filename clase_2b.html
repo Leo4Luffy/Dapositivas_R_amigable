@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Matrices y conjuntos de datos</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <link href="clase_2b_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="clase_2b_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link href="clase_2b_files/panelset-0.2.3/panelset.css" rel="stylesheet" />
+    <script src="clase_2b_files/panelset-0.2.3/panelset.js"></script>
+    <script src="clase_2b_files/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="clase_2b_files/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="clase_2b_files/shareon-1.4.1/shareon.min.js"></script>
+    <link href="clase_2b_files/xaringanExtra-shareagain-0.2.3/shareagain.css" rel="stylesheet" />
+    <script src="clase_2b_files/xaringanExtra-shareagain-0.2.3/shareagain.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center
+
+background-image: url(img/matriz_dato.png)
+background-position: 50% 70%
+background-size: 44%
+
+# Matrices y conjuntos de datos
+
+
+
+
+
+&lt;style type="text/css"&gt;
+pre {
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+.inverse {
+  background-color: #272822;
+  color: #d6d6d6;
+  text-shadow: 0 0 20px #333;
+}
+&lt;/style&gt;
+
+
+
+---
+class: inverse
+
+# Objetivos de la lección
+
+--
+
+- &lt;P align="justify"&gt;***Hablaremos*** sobre las matrices y conjuntos de datos.&lt;/p&gt;
+
+&lt;br&gt;
+--
+
+- &lt;P align="justify"&gt;.&lt;/p&gt;
+
+&lt;br&gt;
+--
+
+- &lt;P align="justify"&gt;.&lt;/p&gt;
+
+---
+
+# Matrices y conjuntos de datos
+
+&lt;P align="justify"&gt;Las matrices y los conjuntos son arreglos rectangulares de filas y columnas. Si bien las matrices y los conjuntos de datos se ven muy similares, dada su estructura tabular, no son exactamente lo mismo: las matrices pueden contener solo una clase de datos (ya sea numérico o carácter por ejemplo), mientras que los conjuntos de datos pueden contener columnas tanto numéricas como de caracteres.&lt;/p&gt;
+
+.center[
+&lt;img src="img/matriz_dato_2.png" width="54%" /&gt;
+]
+
+---
+
+# Matrices y conjuntos de datos
+
+&lt;P align="justify"&gt;Hay muchas formas de crear matrices y conjuntos de datos en `R`:&lt;/p&gt;
+
+&lt;small&gt;
+
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#fxhfctxyzd .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#fxhfctxyzd .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#fxhfctxyzd .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#fxhfctxyzd .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#fxhfctxyzd .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#fxhfctxyzd .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#fxhfctxyzd .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#fxhfctxyzd .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#fxhfctxyzd .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#fxhfctxyzd .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#fxhfctxyzd .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#fxhfctxyzd .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#fxhfctxyzd .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#fxhfctxyzd .gt_row {
+  padding: 8px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#fxhfctxyzd .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#fxhfctxyzd .gt_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 8px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#fxhfctxyzd .gt_grand_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* grand_summary_row.background.color */
+  padding: 8px;
+  /* grand_summary_row.padding */
+  text-transform: inherit;
+  /* grand_summary_row.text_transform */
+}
+
+#fxhfctxyzd .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#fxhfctxyzd .gt_first_grand_summary_row {
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #A8A8A8;
+}
+
+#fxhfctxyzd .gt_table_body {
+  border-top-style: solid;
+  /* table_body.border.top.style */
+  border-top-width: 2px;
+  /* table_body.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table_body.border.top.color */
+  border-bottom-style: solid;
+  /* table_body.border.bottom.style */
+  border-bottom-width: 2px;
+  /* table_body.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* table_body.border.bottom.color */
+}
+
+#fxhfctxyzd .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#fxhfctxyzd .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#fxhfctxyzd .gt_center {
+  text-align: center;
+}
+
+#fxhfctxyzd .gt_left {
+  text-align: left;
+}
+
+#fxhfctxyzd .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#fxhfctxyzd .gt_font_normal {
+  font-weight: normal;
+}
+
+#fxhfctxyzd .gt_font_bold {
+  font-weight: bold;
+}
+
+#fxhfctxyzd .gt_font_italic {
+  font-style: italic;
+}
+
+#fxhfctxyzd .gt_super {
+  font-size: 65%;
+}
+
+#fxhfctxyzd .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="fxhfctxyzd" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Función</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Descripción</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Ejemplo</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_left'>cbind(a, b, c)</td>
+<td class='gt_row gt_left'>Combina vectores como columnas en una matriz.</td>
+<td class='gt_row gt_left'>cbind(1:3, 4:6, 7:9)</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>rbind(a, b, c)</td>
+<td class='gt_row gt_left gt_striped'>Combina vectores como filas en una matriz.</td>
+<td class='gt_row gt_left gt_striped'>rbind(1:3, 4:6, 7:9)</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>matrix(data, nrow, ncol, byrow)</td>
+<td class='gt_row gt_left'>Crea una matriz a partir de un vector.</td>
+<td class='gt_row gt_left'>matrix(data = 1:9, nrow = 3, ncol = 3)</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>data.frame()</td>
+<td class='gt_row gt_left gt_striped'>Crea un conjunto de datos a partir de columnas con un nombre</td>
+<td class='gt_row gt_left gt_striped'>data.frame("Edad" = c(19, 21), "Sexo" = c("M", "F"))</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div>
+
+&lt;/small&gt;
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+&lt;P align="justify"&gt;🤓 Intente por favor crear las matrices y el conjunto de datos presentados en la tabla anterior.&lt;br&gt;
+&lt;/p&gt;
+]
+
+.pull-right[
+.center[
+&lt;img src="img/practica.jpg" width="14%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+
+```r
+cbind(1:3, 4:6, 7:9)
+rbind(1:3, 4:6, 7:9)
+matrix(data = 1:9, nrow = 3, ncol = 3)
+data.frame("Edad" = c(19, 21), "Sexo" = c("M", "F"))
+```
+]
+
+
+```r
+cbind(1:3, 4:6, 7:9)
+```
+
+.panel[.panel-name[Resultado 1]
+
+
+```
+##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9
+```
+]
+
+
+```r
+rbind(1:3, 4:6, 7:9)
+```
+
+.panel[.panel-name[Resultado 2]
+
+
+```
+##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9
+```
+]
+
+
+```r
+matrix(data = 1:9, nrow = 3, ncol = 3)
+```
+
+.panel[.panel-name[Resultado 3]
+
+
+```
+##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9
+```
+]
+
+
+```r
+data.frame("Edad" = c(19, 21), "Sexo" = c("M", "F"))
+```
+
+.panel[.panel-name[Resultado 4]
+
+
+```
+##   Edad Sexo
+## 1   19    M
+## 2   21    F
+```
+]
+
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,182 @@
+---
+title: "Matrices y conjuntos de datos"
+subtitle: ""
+author: ""
+instution: "U de A"
+output:
+  xaringan::moon_reader:
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: center
+
+background-image: url(img/matriz_dato.png)
+background-position: 50% 70%
+background-size: 44%
+
+# Matrices y conjuntos de datos
+
+```{r setup, echo=FALSE}
+
+library(xaringanExtra)
+library(flair)
+library(knitr)
+library(tibble)
+library(gt)
+```
+
+```{r xaringan-panelset, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+
+```{css, echo=FALSE}
+pre {
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+.inverse {
+  background-color: #272822;
+  color: #d6d6d6;
+  text-shadow: 0 0 20px #333;
+}
+```
+
+```{r xaringanExtra-share-again, echo=FALSE}
+xaringanExtra::use_share_again()
+```
+
+---
+class: inverse
+
+# Objetivos de la lección
+
+--
+
+- <P align="justify">***Hablaremos*** sobre las matrices y conjuntos de datos.</p>
+
+<br>
+--
+
+- <P align="justify">.</p>
+
+<br>
+--
+
+- <P align="justify">.</p>
+
+---
+
+# Matrices y conjuntos de datos
+
+<P align="justify">Las matrices y los conjuntos son arreglos rectangulares de filas y columnas. Si bien las matrices y los conjuntos de datos se ven muy similares, dada su estructura tabular, no son exactamente lo mismo: las matrices pueden contener solo una clase de datos (ya sea numérico o carácter por ejemplo), mientras que los conjuntos de datos pueden contener columnas tanto numéricas como de caracteres.</p>
+
+.center[
+```{r, echo = FALSE, out.width = "54%"}
+knitr::include_graphics("img/matriz_dato_2.png")
+```
+]
+
+---
+
+# Matrices y conjuntos de datos
+
+<P align="justify">Hay muchas formas de crear matrices y conjuntos de datos en `R`:</p>
+
+<small>
+
+```{r, echo = FALSE, eval = TRUE, message = FALSE, fig.align = 'center'}
+
+tribble(
+  ~Función, ~Descripción, ~Ejemplo,
+  'cbind(a, b, c)', 'Combina vectores como columnas en una matriz.', 'cbind(1:3, 4:6, 7:9)',
+  'rbind(a, b, c)', 'Combina vectores como filas en una matriz.', 'rbind(1:3, 4:6, 7:9)',
+  'matrix(data, nrow, ncol, byrow)', 'Crea una matriz a partir de un vector.', 'matrix(data = 1:9, nrow = 3, ncol = 3)',
+  'data.frame()', 'Crea un conjunto de datos a partir de columnas con un nombre', 'data.frame("Edad" = c(19, 21), "Sexo" = c("M", "F"))'
+  ) %>%
+  gt()
+```
+
+</small>
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+<P align="justify">`r emo::ji("geek")` Intente por favor crear las matrices y el conjunto de datos presentados en la tabla anterior.<br>
+</p>
+]
+
+.pull-right[
+.center[
+```{r, echo = FALSE, out.width = "14%"}
+knitr::include_graphics("img/practica.jpg")
+```
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+```{r, eval = FALSE}
+
+cbind(1:3, 4:6, 7:9)
+rbind(1:3, 4:6, 7:9)
+matrix(data = 1:9, nrow = 3, ncol = 3)
+data.frame("Edad" = c(19, 21), "Sexo" = c("M", "F"))
+```
+]
+
+```{r crear_matriz_1, eval = FALSE}
+
+cbind(1:3, 4:6, 7:9)
+```
+
+.panel[.panel-name[Resultado 1]
+
+```{r ref.label = "crear_matriz_1", echo = FALSE, message = FALSE}
+
+```
+]
+
+```{r crear_matriz_2, eval = FALSE}
+
+rbind(1:3, 4:6, 7:9)
+```
+
+.panel[.panel-name[Resultado 2]
+
+```{r ref.label = "crear_matriz_2", echo = FALSE, message = FALSE}
+
+```
+]
+
+```{r crear_matriz_3, eval = FALSE}
+
+matrix(data = 1:9, nrow = 3, ncol = 3)
+```
+
+.panel[.panel-name[Resultado 3]
+
+```{r ref.label = "crear_matriz_3", echo = FALSE, message = FALSE}
+
+```
+]
+
+```{r crear_matriz_4, eval = FALSE}
+
+data.frame("Edad" = c(19, 21), "Sexo" = c("M", "F"))
+```
+
+.panel[.panel-name[Resultado 4]
+
+```{r ref.label = "crear_matriz_4", echo = FALSE, message = FALSE}
+
+```
+]
+
+]
