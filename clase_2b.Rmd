@@ -292,7 +292,7 @@ tribble(
   'head(x), tail(x)', 'Imprime las primeras y últimas filas del conjunto de datos.',
   'dim(x)', 'Cuenta el número de filas y de columnas de un conjunto de datos.',
   'names(x)', 'Muestra los nombres de las filas y las columnas de un conjunto de datos.',
-  'str(object), summary(object)', 'Muestra la estructura del conjuto de datos (y estadísticas).',
+  'str(object), summary(object)', 'Muestra la estructura del conjunto de datos (y estadísticas).',
   ) %>%
   gt()
 ```
@@ -321,6 +321,7 @@ knitr::include_graphics("img/practica.jpg")
 
 ```{r nombre_iris, eval = FALSE}
 
+data('iris')
 names(x = iris)
 ```
 ]
@@ -336,5 +337,253 @@ names(x = iris)
 
 ---
 
-# Acceso a la información en matrices y conjutos de datos
+# Acceso a la información en matrices y conjuntos de datos
+
+<P align="justify">Para acceder a la información contenida dentro de una matriz o conjunto de datos, se puede usar la __indexación__ mediante el uso del operador `[ ]`. Esta indexación puede ser de dos tipos:</p>
+
++ Indexación numérica
+
+<P align="justify">La indexación numérica permite acceder al elemento de una matriz y conjunto de datos de acuerdo a su posición. Para ello, el operador `[ ]` requiere de dos argumentos: el primero que hace referencia a la posición en las filas, y el segundo que hace referencia a la posición en las columnas.</p>
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+<P align="justify">`r emo::ji("thinking")` Intente por favor crear una matriz con los números del `1` al `9`. Luego, seleccione toda la fila `3`, toda la columna `3`, y por último el elemento de la fila `3` y la columna `2`.</p>
+]
+
+.pull-right[
+.center[
+```{r, echo = FALSE, out.width = "20%"}
+knitr::include_graphics("img/practica.jpg")
+```
+]
+]
+
+]
+
+.panel[.panel-name[Código]
+
+```{r indice_MC, eval = FALSE}
+
+A <- matrix(data = 1:9, nrow = 3, ncol = 3)
+A[3, ]
+A[, 3]
+A[3, 2]
+```
+]
+
+.panel[.panel-name[Resultado]
+
+```{r ref.label = "indice_MC", echo = FALSE, message = FALSE}
+
+```
+]
+
+]
+
+---
+
+# Acceso a la información en matrices y conjuntos de datos
+
+<P align="justify">Para acceder a la información contenida dentro de una matriz o conjunto de datos, se puede usar la __indexación__ mediante el uso del operador `[ ]`. Esta indexación puede ser de dos tipos:</p>
+
++ Indexación lógica
+
+<P align="justify">La indexación lógica en matrices y conjuntos de datos hace referencia a la selección de alguno de sus elementos de acuerdo una condición establecida. Para ello, se usan los denominados __operadores lógicos__ u operadores de comparación:</p>
+
+.pull-left[
+
+<small>
+
+```{r, echo = FALSE, eval = TRUE, message = FALSE, fig.align = 'center'}
+
+tribble(
+  ~Operador,      ~Significado,
+       '==',         'Igual a',
+       '!=',    'Diferente de',
+        '<',         'Menor a',
+       '<=', 'Menor e igual a',
+        '>',         'Mayor a'
+  ) %>%
+  gt()
+```
+
+</small>
+
+]
+
+.pull-right[
+<small>
+
+```{r, echo = FALSE, eval = TRUE, message = FALSE, fig.align = 'center'}
+
+tribble(
+  ~Operador,      ~Significado,
+       '>=', 'Mayor e igual a',
+        '|',               'ó',
+        '&',               'y',
+        '!',              'no'
+  ) %>%
+  gt()
+```
+]
+
+---
+
+# Acceso a la información en matrices y conjuntos de datos
+
+<P align="justify">Para acceder a la información contenida dentro de una matriz o conjunto de datos, se puede usar la __indexación__ mediante el uso del operador `[ ]`. Esta indexación puede ser de dos tipos:</p>
+
++ Indexación lógica
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+<P align="justify">`r emo::ji("thinking")` Intente por favor seleccionar del conjunto de datos `starwars` del paquete `dplyr`, solo aquellos individuos cuya `especie` es `humana`.</p>
+<P align="justify">`r emo::ji("geek")` Para ello necesitara primero cargar ese paquete, y luego acceder al conjunto de datos por medio de la función `data()`.
+]
+
+.pull-right[
+.center[
+```{r, echo = FALSE, out.width = "44%"}
+knitr::include_graphics("img/ejemplo_aclaracion.jpg")
+```
+]
+]
+
+]
+
+.panel[.panel-name[Código]
+
+```{r indice_MC_2, eval = FALSE}
+
+library(dplyr)
+data('starwars')
+starwars[starwars[, 'species'] == 'Human', ]
+```
+]
+
+]
+
+---
+
+# Acceso a la información en matrices y conjuntos de datos
+
+<P align="justify">Otra forma de acceder a la información contenida dentro de una matriz o conjunto de datos es mediante el __nombre de las columnas__. Para esto, se puede emplear el operador `$` de la forma `a$nombre`, donde `a` corresponde al nombre de dichos objetos y `nombre` hace referencia al nombre de la columna.</p>
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+<P align="justify">`r emo::ji("thinking")` Haciendo uso del nombre de la columna que hace referencia a la `especie` del conjunto de datos `starwars`, intente por favor seleccionar solo aquellos individuos cuya `especie` es `humana`.</p>
+
+<P align="justify">`r emo::ji("spock")` Recuerde la función `names()`. Usela para conocer el nombre de la columna que hace referencia a la especie de los individuos.</p>
+]
+
+.pull-right[
+.center[
+```{r, echo = FALSE, out.width = "44%"}
+knitr::include_graphics("img/ejemplo_aclaracion.jpg")
+```
+]
+]
+
+]
+
+.panel[.panel-name[Código]
+
+```{r indice_MC_3, eval = FALSE}
+
+library(dplyr)
+data('starwars')
+names(x = starwars)
+starwars[starwars$species == 'Human', ]
+```
+]
+
+]
+
+---
+
+# Acceso a la información en matrices y conjuntos de datos
+
+<P align="justify">La función `subset()` proporciona otra forma de acceder a la información dentro de un conjunto de datos, mediante una codificación que es fácil de escribir y de leer. La estructura de esta función es:</p>
+
+.center[
+```{r across-spec-color-coded, echo = FALSE}
+decorate('subset(x, subset, select)', error = TRUE, eval=FALSE) %>% 
+  flair('x', color = 'cornflowerblue') %>% 
+  flair('subset', color = 'red') %>% 
+  flair('select', color = 'orange')
+```
+]
+
+<small>
+<span style="color: cornflowerblue">`x`</span> = conjunto de datos del que se desea extraer los datos.<br>
+<span style="color: red">`subset`</span> = condición que establece los datos que se desean seleccionar.<br>
+<span style="color: orange">`select`</span> = columnas que se desean conservar.
+</small>
+
+.panelset[
+
+.panel[.panel-name[Ejemplo 1]
+
+.pull-left[
+<P align="justify">`r emo::ji("thinking")` Intente por favor extraer del conjunto de datos `starwars`, solo los individuos cuya `especie` es `humana`.</p>
+]
+
+.pull-right[
+.center[
+```{r, echo = FALSE, out.width = "24%"}
+knitr::include_graphics("img/practica.jpg")
+```
+]
+]
+
+]
+
+.panel[.panel-name[Código 1]
+
+```{r indice_MC_4, eval = FALSE}
+
+library(dplyr)
+data('starwars')
+subset(x = starwars, subset = species == 'Human')
+```
+]
+
+.panel[.panel-name[Ejemplo 2]
+
+.pull-left[
+<P align="justify">`r emo::ji("thinking")` Intente por favor extraer del conjunto de datos `starwars`, aquellos individuos de `especie` `humana` y que no nacieron en `Tatooine`.</p>
+]
+
+.pull-right[
+.center[
+```{r, echo = FALSE, out.width = "24%"}
+knitr::include_graphics("img/practica.jpg")
+```
+]
+]
+
+]
+
+.panel[.panel-name[Código 2]
+
+```{r indice_MC_5, eval = FALSE}
+
+library(dplyr)
+data('starwars')
+subset(x = starwars, subset = species == 'Human' & homeworld != 'Tatooine')
+```
+]
+
+]
+
+---
 

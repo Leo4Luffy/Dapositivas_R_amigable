@@ -463,7 +463,7 @@ tribble(
         '<',         'Menor a',
        '<=', 'Menor e igual a',
         '>',         'Mayor a',
-       '>=', 'Mayor o igual a'
+       '>=', 'Mayor e igual a'
   ) %>%
   gt()
 ```
