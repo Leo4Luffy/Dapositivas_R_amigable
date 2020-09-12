@@ -664,7 +664,7 @@ decorate('read.table(file, header, sep, dec)', error = TRUE, eval=FALSE) %>%
 .panel[.panel-name[Ejemplo]
 
 .pull-left[
-<P align="justify">`r emo::ji("geek")` Descargue por favor [aquí]() el conjunto de datos `starwars` tanto con extensión __.csv__ y __.txt__. Luego intente importar ambos archivos usando la función `read.table()`.</p>
+<P align="justify">`r emo::ji("geek")` Descargue por favor [aquí](https://leo4luffy.github.io/R_amigable.github.io/schedule/2_class.html) el conjunto de datos `starwars` con extensión __.csv__. Luego intente importar ese archivo usando la función `read.table()`.</p>
 
 ```{r, echo = FALSE, eval = FALSE, message = FALSE}
 
@@ -701,7 +701,6 @@ knitr::include_graphics("img/practica.jpg")
 ```{r, eval = FALSE}
 
 read.table(file = 'starwars.csv', header = TRUE, sep = ',')
-read.table(file = 'starwars.txt', header = TRUE, sep = ' ')
 ```
 ]
 
