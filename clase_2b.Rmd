@@ -84,7 +84,7 @@ knitr::include_graphics("img/matriz_dato_2.png")
 
 # Matrices y conjuntos de datos
 
-<P align="justify">Hay muchas formas de crear matrices y conjuntos de datos en `R`:</p>
+<P align="justify">Existen distintas formas de crear matrices y conjuntos de datos en `R`:</p>
 
 <small>
 
@@ -180,3 +180,161 @@ data.frame("Edad" = c(19, 21), "Sexo" = c("M", "F"))
 ]
 
 ]
+
+---
+
+# Conjuntos de datos
+
+<P align="justify">El lenguaje de programación `R` contiene conjuntos de datos ya instalados en un paquete llamado `datasets`. Este paquete no requiere ser instalado puesto que ya viene incluido en el `R` base. Algunos de estos conjuntos de datos son:</p>
+
+<small>
+
+```{r, echo = FALSE, eval = TRUE, message = FALSE, fig.align = 'center'}
+
+tribble(
+  ~'Conjuntos de datos', ~Descripción,
+  'iris', 'Conjunto de datos sobre medidas en características morfológicas de tres especies de la flor iris.',
+  'mtcars', 'Conjunto de datos sobre el consumo de combustible y aspecto del diseño y rendimiento en automoviles.',
+  'insectSprays', 'Conjunto de datos sobre conteo de insectos tratados con insecticidas.',
+  'Titanic', 'Conjunto de datos que proporciona información sobre el destino de los pasajeros del viaje inagural del Titanic'
+  ) %>%
+  gt()
+```
+
+</small>
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+<P align="justify">`r emo::ji("megaphone")` Para cargar un conjunto de datos especifico, se puede hacer uso de la función `data()`.</p>
+]
+
+.pull-right[
+<P align="justify">`r emo::ji("geek")` Intente por favor cargar el conjunto de datos `iris` descrito en la tabla anterior.</p>
+]
+
+]
+
+.panel[.panel-name[Código]
+
+```{r, eval = FALSE}
+
+data('iris')
+```
+]
+
+]
+
+---
+
+# Conjuntos de datos
+
+<P align="justify">También pueden existir conjuntos de datos disponibles dentro de paquetes del `R`. Algunos de estos conjuntos de datos son:</p>
+
+<small>
+
+```{r, echo = FALSE, eval = TRUE, message = FALSE, fig.align = 'center'}
+
+tribble(
+  ~'Conjuntos de datos', ~Paquete, ~Descripción,
+  'penguins', 'palmerpenguins', 'Conjunto de datos sobre medidas en características morfológicas en pingüinos de genero Pygoscelis.',
+  'gapminder', 'gapminder', 'Conjunto de datos que proporciona información sobre indicadores o datos socioeconómicos a través del tiempo.',
+  'starwars', 'dplyr', 'Conjunto de datos que proporciona información sobre características de los personajes de la serie star wars.',
+  ) %>%
+  gt()
+```
+
+</small>
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+<P align="justify">`r emo::ji("thinking")` Haciendo uso de la función `data()`, intente por favor cargar el cojunto de datos `star wars` del paquete `dplyr`. Para ello, necesitará previamente cargar ese paquete.</p>
+]
+
+.pull-right[
+.center[
+```{r, echo = FALSE, out.width = "22%"}
+knitr::include_graphics("img/practica.jpg")
+```
+]
+]
+
+]
+
+.panel[.panel-name[Código]
+
+```{r, eval = FALSE}
+
+library(dplyr)
+data('starwars')
+```
+]
+
+]
+
+---
+
+# Conjuntos de datos
+
+<P align="justify">El lenguaje de programación `R` contiene funciones que proporcionan información sobre conjuntos de datos. Estas funciones son:</p>
+
+<small>
+
+```{r, echo = FALSE, eval = TRUE, message = FALSE, fig.align = 'center'}
+
+tribble(
+  ~'Conjuntos de datos', ~Descripción,
+  'head(x), tail(x)', 'Imprime las primeras y últimas filas del conjunto de datos.',
+  'dim(x)', 'Cuenta el número de filas y de columnas de un conjunto de datos.',
+  'names(x)', 'Muestra los nombres de las filas y las columnas de un conjunto de datos.',
+  'str(object), summary(object)', 'Muestra la estructura del conjuto de datos (y estadísticas).',
+  ) %>%
+  gt()
+```
+
+</small>
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+<P align="justify">`r emo::ji("thinking")` Haciendo uso de la función `names()` de la tabla anterior, intente por favor mostrar el nombre de cada columna o variable del conjunto de datos `iris`.</p>
+]
+
+.pull-right[
+.center[
+```{r, echo = FALSE, out.width = "20%"}
+knitr::include_graphics("img/practica.jpg")
+```
+]
+]
+
+]
+
+.panel[.panel-name[Código]
+
+```{r nombre_iris, eval = FALSE}
+
+names(x = iris)
+```
+]
+
+.panel[.panel-name[Resultado]
+
+```{r ref.label = "nombre_iris", echo = FALSE, message = FALSE}
+
+```
+]
+
+]
+
+---
+
+# Acceso a la información en matrices y conjutos de datos
+
