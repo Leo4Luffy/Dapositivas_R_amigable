@@ -634,7 +634,7 @@ knitr::include_graphics("img/lectura.png")
 ```
 ]
 
-<P align="justify">Independientemente del tipo de formato con que se almacene un conjunto de dato, se puede emplear una sola función del programa `R` base para llevar a cabo su lectura: la función `read.table()`.</p>
+<P align="justify">Independientemente del tipo de formato con que se almacene un conjunto de dato, se puede emplear una sola función del programa `R` para llevar a cabo su lectura: la función `read.table()`.</p>
 
 ---
 
