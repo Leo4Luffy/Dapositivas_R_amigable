@@ -278,8 +278,8 @@ library(tidyverse)
   &lt;tr&gt;
    &lt;th style="text-align:left;"&gt; País &lt;/th&gt;
    &lt;th style="text-align:right;"&gt; Año &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; Clave &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Valor &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Tipo &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Conteo &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
@@ -578,13 +578,273 @@ library(tidyverse)
 
 &lt;br&gt;
 
-&lt;P align="justify"&gt;🤓 Los __datos ordenados__ fueron popularizados por __Hadley Wickham__, y sirven como base para el desarrollo de muchos paquetes del `R`. Pueden obtener más información sobre datos ordenados leyendo &lt;a href="../Documentos/tidy_data.pdf" download="tidy_data"&gt;Tidy Data&lt;/a&gt;, un documento escrito por Hadley y publicado en el Journal of Statistical Software.&lt;/p&gt;
+&lt;P align="justify"&gt;🤓 Los __datos ordenados__ fueron popularizados por __Hadley Wickham__, y sirven como base para el desarrollo de muchos paquetes del `R`. Pueden obtener más información sobre datos ordenados leyendo &lt;a href="Documentos/tidy_data.pdf" class="export"&gt;tidy data&lt;/a&gt;, un documento escrito por Hadley y publicado en el Journal of Statistical Software.&lt;/p&gt;
 
 .right[
 &lt;img src="img/Hadley_Wikham.jpg" width="18%" /&gt;
 ]
 
 ---
+
+background-image: url(img/tidyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+## Ordenando los datos con el paquete tidyr
+
+&lt;P align="justify"&gt;El paquete `tidyr` tiene como objetivo ayudar a ordenar los datos desordenados. Para esto, este paquete contiene varias funciones:&lt;/p&gt;
+
++ `pivot_wider()`
+
+
+
+---
+
+background-image: url(img/tidyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+## Ordenando los datos con el paquete tidyr
+
+&lt;P align="justify"&gt;El paquete `tidyr` tiene como objetivo ayudar a ordenar los datos desordenados. Para esto, este paquete contiene varias funciones:&lt;/p&gt;
+
++ `pivot_wider()`
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+&lt;P align="justify"&gt;🤔 Intente por favor convertir el conjunto de datos de la __Forma 2__ anteriormente mostrado a su forma ordenada, usando la función `pivot_wider()`, similar a la imagen a continuación:&lt;/p&gt;
+
+.center[
+&lt;img src="img/pivot_wider.png" width="59%" /&gt;
+]
+]
+
+.panel[.panel-name[Conjunto de datos]
+
+
+```
+## # A tibble: 12 x 4
+##    País         Año Tipo          Conteo
+##    &lt;chr&gt;      &lt;int&gt; &lt;chr&gt;          &lt;int&gt;
+##  1 Afganistán  1999 Casos            745
+##  2 Afganistán  1999 Población   19987071
+##  3 Afganistán  2000 Casos           2666
+##  4 Afganistán  2000 Población   20595360
+##  5 Brasil      1999 Casos          37737
+##  6 Brasil      1999 Población  172006362
+##  7 Brasil      2000 Casos          80488
+##  8 Brasil      2000 Población  174504898
+##  9 China       1999 Casos         212258
+## 10 China       1999 Población 1272915272
+## 11 China       2000 Casos         213766
+## 12 China       2000 Población 1280428583
+```
+]
+
+.panel[.panel-name[Código]
+
+
+```r
+pivot_wider(
+  data = Forma_2,
+  names_from = Tipo,
+  values_from = Conteo
+  )
+```
+]
+
+.panel[.panel-name[Resultado]
+
+
+```
+## # A tibble: 6 x 4
+##   País         Año  Casos  Población
+##   &lt;chr&gt;      &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+## 1 Afganistán  1999    745   19987071
+## 2 Afganistán  2000   2666   20595360
+## 3 Brasil      1999  37737  172006362
+## 4 Brasil      2000  80488  174504898
+## 5 China       1999 212258 1272915272
+## 6 China       2000 213766 1280428583
+```
+]
+
+]
+
+---
+
+background-image: url(img/tidyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+## Ordenando los datos con el paquete tidyr
+
+&lt;P align="justify"&gt;El paquete `tidyr` tiene como objetivo ayudar a ordenar los datos desordenados. Para esto, este paquete contiene varias funciones:&lt;/p&gt;
+
++ `pivot_longer()`
+
+
+
+---
+
+background-image: url(img/tidyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+## Ordenando los datos con el paquete tidyr
+
+&lt;P align="justify"&gt;El paquete `tidyr` tiene como objetivo ayudar a ordenar los datos desordenados. Para esto, este paquete contiene varias funciones:&lt;/p&gt;
+
++ `pivot_longer()`
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+&lt;P align="justify"&gt;🤔 Intente por favor convertir el conjunto de datos a la izquierda de la __Forma 4__ anteriormente mostrado a su forma ordenada, usando la función `pivot_longer()`, similar a la imagen a continuación:&lt;/p&gt;
+
+.center[
+&lt;img src="img/pivot_longer_a.png" width="59%" /&gt;
+]
+]
+
+.panel[.panel-name[Conjunto de datos]
+
+
+```
+## # A tibble: 3 x 3
+##   País       `1999` `2000`
+##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;
+## 1 Afganistán    745   2666
+## 2 Brasil      37737  80488
+## 3 China      212258 213766
+```
+]
+
+.panel[.panel-name[Código]
+
+
+```r
+pivot_longer(
+  data = Forma_4,
+  cols = c('1999', '2000'),
+  names_to = 'Año',
+  values_to = 'Casos'
+  )
+```
+]
+
+.panel[.panel-name[Resultado]
+
+
+```
+## # A tibble: 6 x 3
+##   País       Año    Casos
+##   &lt;chr&gt;      &lt;chr&gt;  &lt;int&gt;
+## 1 Afganistán 1999     745
+## 2 Afganistán 2000    2666
+## 3 Brasil     1999   37737
+## 4 Brasil     2000   80488
+## 5 China      1999  212258
+## 6 China      2000  213766
+```
+]
+
+]
+
+---
+
+background-image: url(img/tidyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+## Ordenando los datos con el paquete tidyr
+
+&lt;P align="justify"&gt;El paquete `tidyr` tiene como objetivo ayudar a ordenar los datos desordenados. Para esto, este paquete contiene varias funciones:&lt;/p&gt;
+
++ `separate()` y `unite()`
+
+
+
+---
+
+background-image: url(img/tidyr.png)
+background-position: 95% 5%
+background-size: 10%
+
+## Ordenando los datos con el paquete tidyr
+
+&lt;P align="justify"&gt;El paquete `tidyr` tiene como objetivo ayudar a ordenar los datos desordenados. Para esto, este paquete contiene varias funciones:&lt;/p&gt;
+
++ `separate()` y `unite()`
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+&lt;P align="justify"&gt;🤔 Intente por favor convertir el conjunto de datos de la __Forma 3__ anteriormente mostrado a su forma ordenada, usando la función `separate()`, similar a la imagen a continuación:&lt;/p&gt;
+
+.center[
+&lt;img src="img/separate.png" width="59%" /&gt;
+]
+]
+
+.panel[.panel-name[Conjunto de datos]
+
+
+```
+## # A tibble: 6 x 3
+##   País         Año Tasa             
+##   &lt;chr&gt;      &lt;int&gt; &lt;chr&gt;            
+## 1 Afganistán  1999 745/19987071     
+## 2 Afganistán  2000 2666/20595360    
+## 3 Brasil      1999 37737/172006362  
+## 4 Brasil      2000 80488/174504898  
+## 5 China       1999 212258/1272915272
+## 6 China       2000 213766/1280428583
+```
+]
+
+.panel[.panel-name[Código]
+
+
+```r
+separate(
+  data = Forma_3,
+  col = Tasa,
+  into =  c('Casos', 'Población'),
+  sep  =  '/'
+  )
+```
+]
+
+.panel[.panel-name[Resultado]
+
+
+```
+## # A tibble: 6 x 4
+##   País         Año Casos  Población 
+##   &lt;chr&gt;      &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;     
+## 1 Afganistán  1999 745    19987071  
+## 2 Afganistán  2000 2666   20595360  
+## 3 Brasil      1999 37737  172006362 
+## 4 Brasil      2000 80488  174504898 
+## 5 China       1999 212258 1272915272
+## 6 China       2000 213766 1280428583
+```
+]
+
+]
+
+---
+
+class:inverse, center, middle
+
+# Tu turno!!
+
+### Click [aquí]() por favor.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
