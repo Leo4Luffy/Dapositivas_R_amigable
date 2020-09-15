@@ -590,13 +590,31 @@ background-image: url(img/tidyr.png)
 background-position: 95% 5%
 background-size: 10%
 
-## Ordenando los datos con el paquete tidyr
+### Ordenando los datos con el paquete tidyr
 
 &lt;P align="justify"&gt;El paquete `tidyr` tiene como objetivo ayudar a ordenar los datos desordenados. Para esto, este paquete contiene varias funciones:&lt;/p&gt;
 
 + `pivot_wider()`
 
+&lt;P align="justify"&gt;La función `pivot_wider()` es usada cuando se tiene una variable dispersa en múltiples filas.&lt;/p&gt;
 
+.center[
+&lt;img src="clase_3a_files/figure-html/unnamed-chunk-27-1.png" width="162" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;P align="justify"&gt;La estructura de esta función es:&lt;/p&gt;
+
+&lt;small&gt;
+
+.center[
+
+&lt;code class ='r hljs remark-code'&gt;pivot_wider(&lt;span style='color:cornflowerblue'&gt;data&lt;/span&gt;, &lt;span style='color:red'&gt;names_from&lt;/span&gt;, &lt;span style='color:orange'&gt;values_from&lt;/span&gt;)&lt;/code&gt;
+]
+
+&lt;span style="color: cornflowerblue"&gt;`data`&lt;/span&gt; = nombre del conjunto de datos a ordenar.&lt;br&gt;
+&lt;span style="color: red"&gt;`names_from`&lt;/span&gt; = nombre de la columna que contiene más de una variable.&lt;br&gt;
+&lt;span style="color: orange"&gt;`values_from`&lt;/span&gt; = nombre de la columna que contiene los valores de las variables.
+&lt;/small&gt;
 
 ---
 
@@ -685,7 +703,24 @@ background-size: 10%
 
 + `pivot_longer()`
 
+&lt;P align="justify"&gt;La función `pivot_longer()` arregla situaciones en donde las columnas no representan variables, sino valores de una misma variable.&lt;/p&gt;
 
+.center[
+&lt;img src="clase_3a_files/figure-html/unnamed-chunk-32-1.png" width="162" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;small&gt;
+
+.center[
+
+&lt;code class ='r hljs remark-code'&gt;pivot_longer(&lt;span style='color:cornflowerblue'&gt;data&lt;/span&gt;, &lt;span style='color:red'&gt;cols&lt;/span&gt;, &lt;span style='color:orange'&gt;names_to&lt;/span&gt;, &lt;span style='color:green'&gt;values_to&lt;/span&gt;)&lt;/code&gt;
+]
+
+&lt;span style="color: cornflowerblue"&gt;`data`&lt;/span&gt; = nombre del conjunto de datos a ordenar.&lt;br&gt;
+&lt;span style="color: red"&gt;`cols`&lt;/span&gt; = nombre de las columnas que pueden ser una sola variable.&lt;br&gt;
+&lt;span style="color: orange"&gt;`names_to`&lt;/span&gt; = nombre de la columna a crear a partir de los datos almacenados como columnas.&lt;/br&gt;
+&lt;span style="color: green"&gt;`values_to`&lt;/span&gt; = nombre de la columna a crear a partir de los datos almacenados como valores.
+&lt;/small&gt;
 
 ---
 
@@ -766,7 +801,42 @@ background-size: 10%
 
 + `separate()` y `unite()`
 
+&lt;P align="justify"&gt;La función `separate()` permite dividir una columna en múltiples columnas, tomando como separador algún símbolo, mientras que la función `unite()` permite tomar múltiples columnas y las une en una única columna, separando los elementos mediante un separador.&lt;/p&gt;
 
+&lt;P align="justify"&gt;La estructura de estas fuciones son:&lt;/p&gt;
+
+.pull-left[
+
+&lt;small&gt;
+
+.center[
+
+&lt;code class ='r hljs remark-code'&gt;&lt;span style='color:green'&gt;sep&lt;/span&gt;arate(&lt;span style='color:cornflowerblue'&gt;data&lt;/span&gt;, &lt;span style='color:red'&gt;col&lt;/span&gt;, &lt;span style='color:orange'&gt;into&lt;/span&gt;, &lt;span style='color:green'&gt;sep&lt;/span&gt;)&lt;/code&gt;
+]
+
+&lt;span style="color: cornflowerblue"&gt;`data`&lt;/span&gt; = nombre del conjunto de datos a ordenar.&lt;br&gt;
+&lt;span style="color: red"&gt;`col`&lt;/span&gt; = nombre de la columna que se quiere dividir.&lt;br&gt;
+&lt;span style="color: orange"&gt;`into`&lt;/span&gt; = nombres de las nuevas variables.&lt;/br&gt;
+&lt;span style="color: green"&gt;`sep`&lt;/span&gt; = símbolo con el que se dividio las variables en una misma columna.
+&lt;/small&gt;
+
+]
+
+.pull-right[
+
+&lt;small&gt;
+
+.center[
+
+&lt;code class ='r hljs remark-code'&gt;unite(&lt;span style='color:cornflowerblue'&gt;data&lt;/span&gt;, &lt;span style='color:red'&gt;col&lt;/span&gt;, &lt;span style='color:orange'&gt;sep&lt;/span&gt;)&lt;/code&gt;
+]
+
+&lt;span style="color: cornflowerblue"&gt;`data`&lt;/span&gt; = nombre del conjunto de datos a ordenar.&lt;br&gt;
+&lt;span style="color: red"&gt;`col`&lt;/span&gt; = nombre de la nueva columna que se quiere crear.&lt;br&gt;
+&lt;span style="color: orange"&gt;`sep`&lt;/span&gt; = símbolo que va a separar las variables en una misma columna.
+&lt;/small&gt;
+
+]
 
 ---
 
