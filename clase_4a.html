@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>Manipulación</title>
+    <title>Manipulación y limpieza de datos</title>
     <meta charset="utf-8" />
     <meta name="author" content="" />
     <link href="clase_4a_files/remark-css-0.0.1/default.css" rel="stylesheet" />
@@ -172,11 +172,11 @@ background-size: 10%
 
 ## La función filter()
 
-&lt;P align="justify"&gt;En algunos casos, requerirá de una selección de filas y no de todas las filas en el análisis. Para esto, necesitará de una función que permita extraer esas filas del conjunto de datos. La función `filter()` del paquete `dplyr`, permite la selección de filas que satisfacen ciertas condiciones:&lt;/p&gt;
+&lt;P align="justify"&gt;En algunos casos requerirá seleccionar parte de una fila completa en el análisis. Para esto, necesitará de una función que permita extraer esas filas del conjunto de datos. La función `filter()` del paquete `dplyr`, permite la selección de filas si satisfacen ciertas condiciones:&lt;/p&gt;
 
 + Filtrado según una variable numérica
 
-&lt;P align="justify"&gt;Si se desea filtrar variables númericas en función de sus valores, se puede hacer por medio de la función `filter()` y de los siguientes __operadores lógicos__ u operadores de comparación:&lt;/p&gt;
+&lt;P align="justify"&gt;Si se desea filtrar variables númericas en función de sus valores, se puede hacer emplear la función `filter()` y en compañia de los siguientes __operadores lógicos__ u operadores de comparación:&lt;/p&gt;
 
 &lt;small&gt;
 
@@ -184,7 +184,7 @@ background-size: 10%
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#eqkonupcma .gt_table {
+#evbablgrfi .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -203,13 +203,13 @@ background-size: 10%
   /* table.border.top.color */
 }
 
-#eqkonupcma .gt_heading {
+#evbablgrfi .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#eqkonupcma .gt_title {
+#evbablgrfi .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -220,7 +220,7 @@ background-size: 10%
   border-bottom-width: 0;
 }
 
-#eqkonupcma .gt_subtitle {
+#evbablgrfi .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -231,7 +231,7 @@ background-size: 10%
   border-top-width: 0;
 }
 
-#eqkonupcma .gt_bottom_border {
+#evbablgrfi .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -240,7 +240,7 @@ background-size: 10%
   /* heading.border.bottom.color */
 }
 
-#eqkonupcma .gt_column_spanner {
+#evbablgrfi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -248,7 +248,7 @@ background-size: 10%
   padding-bottom: 4px;
 }
 
-#eqkonupcma .gt_col_heading {
+#evbablgrfi .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -261,11 +261,11 @@ background-size: 10%
   margin: 10px;
 }
 
-#eqkonupcma .gt_sep_right {
+#evbablgrfi .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#eqkonupcma .gt_group_heading {
+#evbablgrfi .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -289,7 +289,7 @@ background-size: 10%
   vertical-align: middle;
 }
 
-#eqkonupcma .gt_empty_group_heading {
+#evbablgrfi .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -313,33 +313,33 @@ background-size: 10%
   vertical-align: middle;
 }
 
-#eqkonupcma .gt_striped {
+#evbablgrfi .gt_striped {
   background-color: #f2f2f2;
 }
 
-#eqkonupcma .gt_from_md > :first-child {
+#evbablgrfi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#eqkonupcma .gt_from_md > :last-child {
+#evbablgrfi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#eqkonupcma .gt_row {
+#evbablgrfi .gt_row {
   padding: 8px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#eqkonupcma .gt_stub {
+#evbablgrfi .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#eqkonupcma .gt_summary_row {
+#evbablgrfi .gt_summary_row {
   color: #000000;
   background-color: #FFFFFF;
   /* summary_row.background.color */
@@ -349,7 +349,7 @@ background-size: 10%
   /* summary_row.text_transform */
 }
 
-#eqkonupcma .gt_grand_summary_row {
+#evbablgrfi .gt_grand_summary_row {
   color: #000000;
   background-color: #FFFFFF;
   /* grand_summary_row.background.color */
@@ -359,19 +359,19 @@ background-size: 10%
   /* grand_summary_row.text_transform */
 }
 
-#eqkonupcma .gt_first_summary_row {
+#evbablgrfi .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#eqkonupcma .gt_first_grand_summary_row {
+#evbablgrfi .gt_first_grand_summary_row {
   border-top-style: double;
   border-top-width: 6px;
   border-top-color: #A8A8A8;
 }
 
-#eqkonupcma .gt_table_body {
+#evbablgrfi .gt_table_body {
   border-top-style: solid;
   /* table_body.border.top.style */
   border-top-width: 2px;
@@ -386,55 +386,55 @@ background-size: 10%
   /* table_body.border.bottom.color */
 }
 
-#eqkonupcma .gt_footnote {
+#evbablgrfi .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#eqkonupcma .gt_sourcenote {
+#evbablgrfi .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#eqkonupcma .gt_center {
+#evbablgrfi .gt_center {
   text-align: center;
 }
 
-#eqkonupcma .gt_left {
+#evbablgrfi .gt_left {
   text-align: left;
 }
 
-#eqkonupcma .gt_right {
+#evbablgrfi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#eqkonupcma .gt_font_normal {
+#evbablgrfi .gt_font_normal {
   font-weight: normal;
 }
 
-#eqkonupcma .gt_font_bold {
+#evbablgrfi .gt_font_bold {
   font-weight: bold;
 }
 
-#eqkonupcma .gt_font_italic {
+#evbablgrfi .gt_font_italic {
   font-style: italic;
 }
 
-#eqkonupcma .gt_super {
+#evbablgrfi .gt_super {
   font-size: 65%;
 }
 
-#eqkonupcma .gt_footnote_glyph {
+#evbablgrfi .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="eqkonupcma" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><!--gt table start-->
+<div id="evbablgrfi" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><!--gt table start-->
 <table class='gt_table'>
 <tr>
 <th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Operador</th>
@@ -480,7 +480,7 @@ background-size: 10%
 
 ## La función filter()
 
-&lt;P align="justify"&gt;En algunos casos, requerirá de una selección de filas y no de todas las filas en el análisis. Para esto, necesitará de una función que permita extraer esas filas del conjunto de datos. La función `filter()` del paquete `dplyr`, permite la selección de filas que satisfacen ciertas condiciones:&lt;/p&gt;
+&lt;P align="justify"&gt;En algunos casos requerirá seleccionar parte de una fila completa en el análisis. Para esto, necesitará de una función que permita extraer esas filas del conjunto de datos. La función `filter()` del paquete `dplyr`, permite la selección de filas si satisfacen ciertas condiciones:&lt;/p&gt;
 
 + Filtrado según una variable numérica
 
@@ -501,7 +501,6 @@ background-size: 10%
 
 .panel[.panel-name[Código]
 
-
 ```r
 filter(
   .data = penguins,
@@ -510,6 +509,9 @@ filter(
 ```
 ]
 
+.panel[.panel-name[Demostración]
+&lt;iframe src="https://jorge-leonardo-lopez-martinez.shinyapps.io/Practica_clase_4a/?showcase=0" width="100%" height="400px"&gt;&lt;/iframe&gt;
+]
 ]
 
 ---
@@ -520,9 +522,789 @@ background-size: 10%
 
 ## La función filter()
 
-&lt;P align="justify"&gt;En algunos casos, requerirá de una selección de filas y no de todas las filas en el análisis. Para esto, necesitará de una función que permita extraer esas filas del conjunto de datos. La función `filter()` del paquete `dplyr`, permite la selección de filas basadas en condiciones.&lt;/p&gt;
+&lt;P align="justify"&gt;En algunos casos requerirá seleccionar parte de una fila completa en el análisis. Para esto, necesitará de una función que permita extraer esas filas del conjunto de datos. La función `filter()` del paquete `dplyr`, permite la selección de filas si satisfacen ciertas condiciones:&lt;/p&gt;
 
-&lt;iframe src="https://jorge-leonardo-lopez-martinez.shinyapps.io/Practica_clase_3a/?showcase=0" width="100%" height="400px"&gt;&lt;/iframe&gt;
++ Filtrado según coincidencia exacta de variables de clase carácter
+
+&lt;P align="justify"&gt;Si se desea filtrar una fila de una variable de clase carácter, se puede emplear la función `filter()` en compañia de los siguientes __operadores lógicos__ u operadores de comparación:&lt;/p&gt;
+
+&lt;small&gt;
+
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#wgcusuhwxf .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#wgcusuhwxf .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#wgcusuhwxf .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#wgcusuhwxf .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#wgcusuhwxf .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#wgcusuhwxf .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#wgcusuhwxf .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#wgcusuhwxf .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#wgcusuhwxf .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#wgcusuhwxf .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#wgcusuhwxf .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#wgcusuhwxf .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#wgcusuhwxf .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#wgcusuhwxf .gt_row {
+  padding: 8px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#wgcusuhwxf .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#wgcusuhwxf .gt_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 8px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#wgcusuhwxf .gt_grand_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* grand_summary_row.background.color */
+  padding: 8px;
+  /* grand_summary_row.padding */
+  text-transform: inherit;
+  /* grand_summary_row.text_transform */
+}
+
+#wgcusuhwxf .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#wgcusuhwxf .gt_first_grand_summary_row {
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #A8A8A8;
+}
+
+#wgcusuhwxf .gt_table_body {
+  border-top-style: solid;
+  /* table_body.border.top.style */
+  border-top-width: 2px;
+  /* table_body.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table_body.border.top.color */
+  border-bottom-style: solid;
+  /* table_body.border.bottom.style */
+  border-bottom-width: 2px;
+  /* table_body.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* table_body.border.bottom.color */
+}
+
+#wgcusuhwxf .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#wgcusuhwxf .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#wgcusuhwxf .gt_center {
+  text-align: center;
+}
+
+#wgcusuhwxf .gt_left {
+  text-align: left;
+}
+
+#wgcusuhwxf .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#wgcusuhwxf .gt_font_normal {
+  font-weight: normal;
+}
+
+#wgcusuhwxf .gt_font_bold {
+  font-weight: bold;
+}
+
+#wgcusuhwxf .gt_font_italic {
+  font-style: italic;
+}
+
+#wgcusuhwxf .gt_super {
+  font-size: 65%;
+}
+
+#wgcusuhwxf .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="wgcusuhwxf" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Operador</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Significado</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_left'>==</td>
+<td class='gt_row gt_left'>Igual a</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>!=</td>
+<td class='gt_row gt_left gt_striped'>Diferente de</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div>
+
+&lt;/small&gt;
+
+---
+
+background-image: url(img/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+## La función filter()
+
+&lt;P align="justify"&gt;En algunos casos requerirá seleccionar parte de una fila completa en el análisis. Para esto, necesitará de una función que permita extraer esas filas del conjunto de datos. La función `filter()` del paquete `dplyr`, permite la selección de filas si satisfacen ciertas condiciones:&lt;/p&gt;
+
++ Filtrado según coincidencia exacta de variables de clase carácter
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+&lt;P align="justify"&gt;🤔 Intente por favor del conjunto de datos `penguins` extraer solo aquellos pingüinos cuya `especie` corresponde a la especie *Adelie*.&lt;/p&gt;
+]
+
+.pull-right[
+.center[
+&lt;img src="img/practica.jpg" width="24%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+```r
+filter(
+  .data = penguins,
+  species == 'Adelie'
+  )
+```
+]
+
+.panel[.panel-name[Demostración]
+&lt;iframe src="https://jorge-leonardo-lopez-martinez.shinyapps.io/Practica_clase_4a/?showcase=0" width="100%" height="400px"&gt;&lt;/iframe&gt;
+]
+]
+
+---
+
+background-image: url(img/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+## La función filter()
+
+&lt;P align="justify"&gt;En algunos casos requerirá seleccionar parte de una fila completa en el análisis. Para esto, necesitará de una función que permita extraer esas filas del conjunto de datos. La función `filter()` del paquete `dplyr`, permite la selección de filas si satisfacen ciertas condiciones:&lt;/p&gt;
+
++ Filtrado basado en múltiples condiciones
+
+&lt;P align="justify"&gt;En caso de que requiera extraer filas basadas en múltiples condiciones, puede hacer uso de la función `filter()` en compañia de los siguientes __operadores lógicos__ u operadores de comparación:&lt;/p&gt;
+
+&lt;small&gt;
+
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#kaxcutcirl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#kaxcutcirl .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#kaxcutcirl .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#kaxcutcirl .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#kaxcutcirl .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#kaxcutcirl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#kaxcutcirl .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#kaxcutcirl .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#kaxcutcirl .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#kaxcutcirl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#kaxcutcirl .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#kaxcutcirl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#kaxcutcirl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#kaxcutcirl .gt_row {
+  padding: 8px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#kaxcutcirl .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#kaxcutcirl .gt_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 8px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#kaxcutcirl .gt_grand_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* grand_summary_row.background.color */
+  padding: 8px;
+  /* grand_summary_row.padding */
+  text-transform: inherit;
+  /* grand_summary_row.text_transform */
+}
+
+#kaxcutcirl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#kaxcutcirl .gt_first_grand_summary_row {
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #A8A8A8;
+}
+
+#kaxcutcirl .gt_table_body {
+  border-top-style: solid;
+  /* table_body.border.top.style */
+  border-top-width: 2px;
+  /* table_body.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table_body.border.top.color */
+  border-bottom-style: solid;
+  /* table_body.border.bottom.style */
+  border-bottom-width: 2px;
+  /* table_body.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* table_body.border.bottom.color */
+}
+
+#kaxcutcirl .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#kaxcutcirl .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#kaxcutcirl .gt_center {
+  text-align: center;
+}
+
+#kaxcutcirl .gt_left {
+  text-align: left;
+}
+
+#kaxcutcirl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#kaxcutcirl .gt_font_normal {
+  font-weight: normal;
+}
+
+#kaxcutcirl .gt_font_bold {
+  font-weight: bold;
+}
+
+#kaxcutcirl .gt_font_italic {
+  font-style: italic;
+}
+
+#kaxcutcirl .gt_super {
+  font-size: 65%;
+}
+
+#kaxcutcirl .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="kaxcutcirl" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Operador</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Significado</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_left'>&amp;</td>
+<td class='gt_row gt_left'>y</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>|</td>
+<td class='gt_row gt_left gt_striped'>O</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div>
+
+&lt;/small&gt;
+
+---
+
+background-image: url(img/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+## La función filter()
+
+&lt;P align="justify"&gt;En algunos casos requerirá seleccionar parte de una fila completa en el análisis. Para esto, necesitará de una función que permita extraer esas filas del conjunto de datos. La función `filter()` del paquete `dplyr`, permite la selección de filas si satisfacen ciertas condiciones:&lt;/p&gt;
+
++ Filtrado según coincidencia exacta de variables de clase carácter
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+&lt;P align="justify"&gt;🤔 Intente por favor del conjunto de datos `penguins` extraer aquellos pingüinos cuya `especie` corresponde a la especie *Adelie* y cuya colonia fue ubicada en la `isla` Dream.&lt;/p&gt;
+]
+
+.pull-right[
+.center[
+&lt;img src="img/practica.jpg" width="24%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+```r
+filter(
+  .data = penguins,
+  species == 'Adelie' &amp; island == 'Dream'
+  )
+```
+]
+
+.panel[.panel-name[Demostración]
+&lt;iframe src="https://jorge-leonardo-lopez-martinez.shinyapps.io/Practica_clase_4a/?showcase=0" width="100%" height="400px"&gt;&lt;/iframe&gt;
+]
+]
+
+---
+
+background-image: url(img/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+## La función slice()
+
+&lt;P align="justify"&gt;Otra función del paquete `dplyr` que actua sobre las filas es la función `slice()`. Esta función permite extraer filas de acuerdo a su posición dentro del conjuntos de datos.&lt;/p&gt;
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+&lt;P align="justify"&gt;🤔 Intente por favor del conjunto de datos `penguins` extraer solo las cuatro primeras filas, de manera similar a la imagen a continuación:&lt;/p&gt;
+
+.center[
+
+&lt;img src="clase_4a_files/figure-html/unnamed-chunk-19-1.png" width="300" /&gt;
+]
+]
+
+.panel[.panel-name[Código]
+
+```r
+slice(
+  .data = penguins,
+  c(1:4)
+  )
+```
+]
+
+.panel[.panel-name[Demostración]
+&lt;iframe src="https://jorge-leonardo-lopez-martinez.shinyapps.io/Practica_clase_4a/?showcase=0" width="100%" height="400px"&gt;&lt;/iframe&gt;
+]
+]
+
+---
+
+background-image: url(img/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+## La función arrange()
+
+&lt;P align="justify"&gt;La función `arrange()` permite reordenar las filas de un conjunto de datos de forma ascendente y descendente en función del valor de una variable.&lt;/p&gt;
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+&lt;P align="justify"&gt;🤔 Intente por favor reordenar el conjunto de datos `penguins` de forma ascendente a acuerdo a la profundidad del pico, de manera similar a la imagen a continuación:&lt;/p&gt;
+
+.center[
+&lt;img src="clase_4a_files/figure-html/unnamed-chunk-22-1.png" width="300" /&gt;
+]
+]
+
+.panel[.panel-name[Código]
+
+```r
+arrange(
+  .data = penguins,
+  desc(culmen_depth_mm)
+  )
+```
+]
+
+.panel[.panel-name[Demostración]
+&lt;iframe src="https://jorge-leonardo-lopez-martinez.shinyapps.io/Practica_clase_4a/?showcase=0" width="100%" height="400px"&gt;&lt;/iframe&gt;
+]
+]
+
+---
+
+background-image: url(img/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+## La función select()
+
+&lt;P align="justify"&gt;La función `select()` del paquete `dplyr` permite elegir y extraer columnas de interés de un conjunto de datos.&lt;/p&gt;
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+&lt;P align="justify"&gt;🤔 Intente por favor seleccionar del conjunto de datos `penguins` las columnas `species`, `bill_length`, `bill_depth` y `body_mass` de manera similar a la imagen a continuación:&lt;/p&gt;
+
+.center[
+&lt;img src="clase_4a_files/figure-html/unnamed-chunk-25-1.png" width="300" /&gt;
+]
+]
+
+.panel[.panel-name[Código]
+
+```r
+select(
+  .data = penguins,
+  species,
+  culmen_length_mm,
+  culmen_depth_mm,
+  body_mass_g
+  )
+```
+]
+
+.panel[.panel-name[Demostración]
+&lt;iframe src="https://jorge-leonardo-lopez-martinez.shinyapps.io/Practica_clase_4a/?showcase=0" width="100%" height="400px"&gt;&lt;/iframe&gt;
+]
+]
+
+---
+
+background-image: url(img/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+## La función select()
+
+&lt;P align="justify"&gt;La función `select()` del paquete `dplyr` permite elegir y extraer columnas de interés de un conjunto de datos.&lt;/p&gt;
+
++ Selección de columnas basadas en nombres parciales de columnas
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
