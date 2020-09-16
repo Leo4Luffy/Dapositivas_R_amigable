@@ -59,6 +59,470 @@ class: inverse
 - &lt;P align="justify"&gt;****** .&lt;/p&gt;
 
 ---
+
+background-image: url(img/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+## Manipulación de datos con el paquete dplyr
+
+&lt;P align="justify"&gt;La manipulación y la limpieza de los datos suele ocupar aproximadamente un 80% del tiempo en el análisis de datos. También es sabido que este proceso de maipulación no es una experiencia alegre.&lt;/p&gt;
+
+.center[
+&lt;img src="img/R_error.jpg" width="50%" /&gt;
+&lt;section style="text-align: center;"&gt;&lt;small&gt;Ilustracíon hecha por &lt;font color = "black"&gt;&lt;u&gt;@allison_horst&lt;/u&gt;&lt;/font&gt;.&lt;/small&gt;&lt;/section&gt;
+]
+
+&lt;P align="justify"&gt;Sin embargo hoy en día existe un paquete del `R` que ayuda en este proceso de manipulación y limpieza de datos: el paquete `dplyr`. Este paquete permite que el proceso de manipulación y limpieza de datos sea un proceso más agradable.&lt;/p&gt;
+
+---
+
+background-image: url(img/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+## Manipulación de datos con el paquete dplyr
+
+&lt;P align="justify"&gt;El paquete `dplyr` tiene como objetivo proporcionar una función para cada verbo básico de la manipulación de datos. Estos verbos se pueden organizar en tres categorías según el componente del conjunto de datos sobre el que trabajan:&lt;/p&gt;
+
+.pull-left[
++ Filas:
+&lt;small&gt;
+  + `filter()`
+  
+  + `slice()`
+  
+  + `arrange()`
+
+&lt;/small&gt;
+
++ Columnas:
+&lt;small&gt;  
+
+  + `select()`
+  
+  + `rename()`
+  
+  + `mutate()`
+  
+  + `relocate()`
+
+&lt;/small&gt;
+]
+
+.pull-right[
+
++ Grupos de filas y de columnas:
+&lt;small&gt;
+
+  + `summarise()`
+
+&lt;/small&gt;
+
+&lt;br&gt;
+
+.right[
+&lt;img src="img/R_click.jpg" width="44%" /&gt;
+&lt;section style="text-align: center;"&gt;&lt;small&gt;Ilustracíon hecha por &lt;font color = "black"&gt;&lt;u&gt;@allison_horst&lt;/u&gt;&lt;/font&gt;.&lt;/small&gt;&lt;/section&gt;
+]
+]
+
+---
+
+## Descripción del conjunto de datos a usar en el análisis
+
+.pull-left[
+
+```r
+install.packages('palmerpenguins')
+library(palmerpenguins)
+```
+]
+
+.pull-right[
+.center[
+&lt;img src="img/Pygoscelis_penguins.png" width="54%" /&gt;
+&lt;section style="text-align: center;"&gt;&lt;small&gt;Ilustracíon hecha por &lt;font color = "black"&gt;&lt;u&gt;@allison_horst&lt;/u&gt;&lt;/font&gt;.&lt;/small&gt;&lt;/section&gt;
+]
+]
+
+
+```r
+glimpse(x = penguins)
+```
+
+```
+## Rows: 344
+## Columns: 8
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Ade…
+## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgers…
+## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1,…
+## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1,…
+## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 18…
+## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475,…
+## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, mal…
+## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 200…
+```
+
+---
+
+background-image: url(img/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+## La función filter()
+
+&lt;P align="justify"&gt;En algunos casos, requerirá de una selección de filas y no de todas las filas en el análisis. Para esto, necesitará de una función que permita extraer esas filas del conjunto de datos. La función `filter()` del paquete `dplyr`, permite la selección de filas que satisfacen ciertas condiciones:&lt;/p&gt;
+
++ Filtrado según una variable numérica
+
+&lt;P align="justify"&gt;Si se desea filtrar variables númericas en función de sus valores, se puede hacer por medio de la función `filter()` y de los siguientes __operadores lógicos__ u operadores de comparación:&lt;/p&gt;
+
+&lt;small&gt;
+
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#eqkonupcma .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#eqkonupcma .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#eqkonupcma .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#eqkonupcma .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#eqkonupcma .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#eqkonupcma .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#eqkonupcma .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#eqkonupcma .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#eqkonupcma .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#eqkonupcma .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#eqkonupcma .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#eqkonupcma .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#eqkonupcma .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#eqkonupcma .gt_row {
+  padding: 8px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#eqkonupcma .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#eqkonupcma .gt_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 8px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#eqkonupcma .gt_grand_summary_row {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* grand_summary_row.background.color */
+  padding: 8px;
+  /* grand_summary_row.padding */
+  text-transform: inherit;
+  /* grand_summary_row.text_transform */
+}
+
+#eqkonupcma .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#eqkonupcma .gt_first_grand_summary_row {
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #A8A8A8;
+}
+
+#eqkonupcma .gt_table_body {
+  border-top-style: solid;
+  /* table_body.border.top.style */
+  border-top-width: 2px;
+  /* table_body.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table_body.border.top.color */
+  border-bottom-style: solid;
+  /* table_body.border.bottom.style */
+  border-bottom-width: 2px;
+  /* table_body.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* table_body.border.bottom.color */
+}
+
+#eqkonupcma .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#eqkonupcma .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#eqkonupcma .gt_center {
+  text-align: center;
+}
+
+#eqkonupcma .gt_left {
+  text-align: left;
+}
+
+#eqkonupcma .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#eqkonupcma .gt_font_normal {
+  font-weight: normal;
+}
+
+#eqkonupcma .gt_font_bold {
+  font-weight: bold;
+}
+
+#eqkonupcma .gt_font_italic {
+  font-style: italic;
+}
+
+#eqkonupcma .gt_super {
+  font-size: 65%;
+}
+
+#eqkonupcma .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="eqkonupcma" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><!--gt table start-->
+<table class='gt_table'>
+<tr>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Operador</th>
+<th class='gt_col_heading gt_left' rowspan='1' colspan='1'>Significado</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr>
+<td class='gt_row gt_left'>==</td>
+<td class='gt_row gt_left'>Igual a</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>!=</td>
+<td class='gt_row gt_left gt_striped'>Diferente de</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>&lt;</td>
+<td class='gt_row gt_left'>Menor a</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>&lt;=</td>
+<td class='gt_row gt_left gt_striped'>Menor e igual a</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>&gt;</td>
+<td class='gt_row gt_left'>Mayor a</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>&gt;=</td>
+<td class='gt_row gt_left gt_striped'>Mayor e igual a</td>
+</tr>
+</tbody>
+</table>
+<!--gt table end-->
+</div>
+
+&lt;/small&gt;
+
+---
+
+background-image: url(img/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+## La función filter()
+
+&lt;P align="justify"&gt;En algunos casos, requerirá de una selección de filas y no de todas las filas en el análisis. Para esto, necesitará de una función que permita extraer esas filas del conjunto de datos. La función `filter()` del paquete `dplyr`, permite la selección de filas que satisfacen ciertas condiciones:&lt;/p&gt;
+
++ Filtrado según una variable numérica
+
+.panelset[
+
+.panel[.panel-name[Ejemplo]
+
+.pull-left[
+&lt;P align="justify"&gt;🤔 Intente por favor del conjunto de datos `penguins` extraer solo aquellos pingüinos con una masa coporal igual a `4400` gramos.&lt;/p&gt;
+]
+
+.pull-right[
+.center[
+&lt;img src="img/practica.jpg" width="24%" /&gt;
+]
+]
+]
+
+.panel[.panel-name[Código]
+
+
+```r
+filter(
+  .data = penguins,
+  body_mass_g &lt; 4400
+  )
+```
+]
+
+]
+
+---
+
+background-image: url(img/dplyr.png)
+background-position: 90% 5%
+background-size: 10%
+
+## La función filter()
+
+&lt;P align="justify"&gt;En algunos casos, requerirá de una selección de filas y no de todas las filas en el análisis. Para esto, necesitará de una función que permita extraer esas filas del conjunto de datos. La función `filter()` del paquete `dplyr`, permite la selección de filas basadas en condiciones.&lt;/p&gt;
+
+&lt;iframe src="https://jorge-leonardo-lopez-martinez.shinyapps.io/Practica_clase_3a/?showcase=0" width="100%" height="400px"&gt;&lt;/iframe&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
