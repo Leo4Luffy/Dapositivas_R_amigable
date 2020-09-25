@@ -12,6 +12,7 @@
     <script src="clase_5b_files/shareon-1.4.1/shareon.min.js"></script>
     <link href="clase_5b_files/xaringanExtra-shareagain-0.2.3/shareagain.css" rel="stylesheet" />
     <script src="clase_5b_files/xaringanExtra-shareagain-0.2.3/shareagain.js"></script>
+    <link href="clase_5b_files/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/Cajitas.css" type="text/css" />
     <link rel="stylesheet" href="css/Fuente.css" type="text/css" />
     <link rel="stylesheet" href="css/cc-fonts.css" type="text/css" />
@@ -53,7 +54,7 @@ class: inverse
 
 --
 
-- &lt;P align="justify"&gt;******  `gganimate`.&lt;/p&gt;
+- &lt;P align="justify"&gt;***Aprenderemos*** sobre la visualización animada de datos usando el paquete `gganimate`.&lt;/p&gt;
 
 ---
 
@@ -71,7 +72,7 @@ class: inverse
 
 .small[
 .pull-right[
-&lt;P align="justify"&gt;La respuesta a lo anterior es un .brand-red[¡SI!], y un ejemplo de ello es la famosa visualización de [Hans Rosling](https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen/up-next), donde representaba la población mundial, la expectativa de vida y varios indicadores económicos mediante una visualización animada.&lt;/p&gt;
+&lt;P align="justify"&gt;La respuesta a lo anterior es un .brand-red[¡SI!], y un ejemplo de ello es la famosa [visualización de Hans Rosling](https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen/up-next), donde representaba la población mundial, la expectativa de vida y varios indicadores económicos mediante una visualización animada.&lt;/p&gt;
 
 &lt;br&gt;
 
@@ -90,7 +91,7 @@ background-size: 10%
 ### Animando sus visualizaciones de datos
 
 .small[
-&lt;P align="justify"&gt;Afortunadamente, hacer este tipo de visualizaciones se ha vuelto hoy en día bastante simple mediante el uso de un paquete del `R`: el paquete `gganimate` 🤯.&lt;/p&gt;
+&lt;P align="justify"&gt;Afortunadamente, hacer visualizaciones animadas de datos se ha vuelto hoy en día bastante simple mediante el uso de un paquete del `R`: el paquete `gganimate` 🤯.&lt;/p&gt;
 ]
 
 .pull-left[
@@ -130,6 +131,40 @@ background-size: 10%
 
 ---
 
+### Descripción del conjunto de datos a usar en la demostración
+
+.pull-left[
+
+```r
+install.packages('gapminder')
+library(gapminder)
+```
+]
+
+.pull-right[
+.center[
+&lt;img src="img/gapminder.jpg" width="84%" /&gt;
+]
+]
+
+
+```r
+glimpse(x = gapminder)
+```
+
+```
+## Rows: 1,704
+## Columns: 6
+## $ country   &lt;fct&gt; Afghanistan, Afghanistan, Afghanistan, Afghanistan, Afghani…
+## $ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia,…
+## $ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997,…
+## $ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.…
+## $ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 1…
+## $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134,…
+```
+
+---
+
 background-image: url(img/gganimate_2.png)
 background-position: 90% 5%
 background-size: 10%
@@ -150,6 +185,191 @@ background-size: 10%
 &lt;img src="img/ejemplo_gapminder_animado.gif" width="60%" style="display: block; margin: auto;" /&gt;
 ]
 
+]
+
+---
+
+background-image: url(img/gganimate_2.png)
+background-position: 90% 5%
+background-size: 10%
+
+### Animando sus visualizaciones de datos
+
+.pull-left[
+.small[
+&lt;P align="justify"&gt;Existen dos formas de usar el paquete `gganimate`:&lt;/p&gt;
+]
+]
+
+.pull-right[
+.center[
+&lt;img src="img/ejemplo_aclaracion.jpg" width="34%" /&gt;
+]
+]
+
+.panelset[
+
+.panel[.panel-name[Primera forma]
+
+.small[
+&lt;P align="justify"&gt;Instalando el paquete desde el __CRAN__ por medio de la función `install.packages()`, y luego cargando el paquete a partir de la función `library()`.&lt;/p&gt;
+]
+
+.pull-left[
+
+```r
+install.packages('gganimate')
+```
+]
+
+.pull-right[
+
+```r
+library(gganimate)
+```
+]
+
+]
+
+.panel[.panel-name[Segunda forma]
+
+.small[
+&lt;P align="justify"&gt;Instalando el paquete en desarrollo, el cual se encuentra alojado en un repositorio del __GitHub__, usando la función `install_github()` del paquete `devtools`, y luego cargando el paquete a partir de la función `library()`.&lt;/p&gt;
+]
+
+.pull-left[
+
+```r
+devtools::install_github('thomasp85/gganimate')
+```
+]
+
+.pull-right[
+
+```r
+library(gganimate)
+```
+]
+
+]
+
+]
+
+---
+
+background-image: url(img/gganimate_2.png)
+background-position: 90% 5%
+background-size: 10%
+
+### Animando sus visualizaciones de datos
+
+##### Definición de la animación: `transition_*()`
+
+.small[
+
+&lt;P align="justify"&gt;Las funciones `transition_*()` son un conjunto de funciones encargadas de interpretar los datos y distribuirlos en subconjuntos de datos de acuerdo a una de sus variables: la variable de transición.&lt;/p&gt;
+
+]
+
+.pull-left[
+
+.code60[
+
+
+
+&lt;code class ='r hljs remark-code'&gt;gapminder %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;data = .,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;aes(x = gdpPercap, y = lifeExp)&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;) +&lt;br&gt;&amp;nbsp;&amp;nbsp;geom_point(aes(colour = continent, fill = continent, size = pop), alpha = 0.4) +&lt;br&gt;&amp;nbsp;&amp;nbsp;scale_size_area(max_size = 14, guide = FALSE) +&lt;br&gt;&amp;nbsp;&amp;nbsp;scale_x_log10() +&lt;br&gt;&amp;nbsp;&amp;nbsp;labs(x = 'PIB per cápita', y = 'Expectativa de vida al nacer') +&lt;br&gt;&amp;nbsp;&amp;nbsp;theme_bw() +&lt;br&gt;&amp;nbsp;&amp;nbsp;theme(legend.position = c(0.8, 0.2)) +&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;transition_time(year)&lt;/span&gt;&lt;/code&gt;
+]
+
+]
+
+.pull-right[
+![](clase_5b_files/figure-html/unnamed-chunk-17-1.gif)&lt;!-- --&gt;
+]
+
+---
+
+background-image: url(img/gganimate_2.png)
+background-position: 90% 5%
+background-size: 10%
+
+### Animando sus visualizaciones de datos
+
+##### Crear estelas de sombra: `shadow_*()`
+
+.small[
+
+&lt;P align="justify"&gt;Con el conjunto de funciones `shadow_*()` se pueden aplicar sombras que muestran los puntos de datos anteriores.&lt;/p&gt;
+
+]
+
+.pull-left[
+
+.code60[
+
+
+
+&lt;code class ='r hljs remark-code'&gt;gapminder %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;data = .,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;aes(x = gdpPercap, y = lifeExp)&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;) +&lt;br&gt;&amp;nbsp;&amp;nbsp;geom_point(aes(colour = continent, fill = continent, size = pop), alpha = 0.4) +&lt;br&gt;&amp;nbsp;&amp;nbsp;scale_size_area(max_size = 14, guide = FALSE) +&lt;br&gt;&amp;nbsp;&amp;nbsp;scale_x_log10() +&lt;br&gt;&amp;nbsp;&amp;nbsp;labs(x = 'PIB per cápita', y = 'Expectativa de vida al nacer') +&lt;br&gt;&amp;nbsp;&amp;nbsp;theme_bw() +&lt;br&gt;&amp;nbsp;&amp;nbsp;theme(legend.position = c(0.8, 0.2)) +&lt;br&gt;&amp;nbsp;&amp;nbsp;transition_time(year) +&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;shadow_trail()&lt;/span&gt;&lt;/code&gt;
+]
+
+]
+
+.pull-right[
+![](clase_5b_files/figure-html/unnamed-chunk-19-1.gif)&lt;!-- --&gt;
+]
+
+---
+
+background-image: url(img/gganimate_2.png)
+background-position: 90% 5%
+background-size: 10%
+
+### Animando sus visualizaciones de datos
+
+##### Etiquetado dinámico: `{frame_time}`
+
+.small[
+
+&lt;P align="justify"&gt;El paquete gganimate proporciona un etiquetado dinámico (`{frame_time}`) que facilita comprender a que transición se refiere cada punto de dato presentado en la gráfica.&lt;/p&gt;
+
+]
+
+.pull-left[
+
+.code50[
+
+
+
+&lt;code class ='r hljs remark-code'&gt;gapminder %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;data = .,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;aes(x = gdpPercap, y = lifeExp)&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;) +&lt;br&gt;&amp;nbsp;&amp;nbsp;geom_point(aes(colour = continent, fill = continent, size = pop), alpha = 0.4) +&lt;br&gt;&amp;nbsp;&amp;nbsp;scale_size_area(max_size = 14, guide = FALSE) +&lt;br&gt;&amp;nbsp;&amp;nbsp;scale_x_log10() +&lt;br&gt;&amp;nbsp;&amp;nbsp;labs(x = 'PIB per cápita', y = 'Expectativa de vida al nacer', &lt;span style='background-color:#ffff7f'&gt;title = 'Año: {frame_time}'&lt;/span&gt;) +&lt;br&gt;&amp;nbsp;&amp;nbsp;theme_bw() +&lt;br&gt;&amp;nbsp;&amp;nbsp;theme(&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;legend.position = c(0.8, 0.2),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;plot.title = element_text(size = 14, face = 'bold')&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;) +&lt;br&gt;&amp;nbsp;&amp;nbsp;transition_time(year) +&lt;br&gt;&amp;nbsp;&amp;nbsp;shadow_trail()&lt;/code&gt;
+]
+
+]
+
+.pull-right[
+![](clase_5b_files/figure-html/unnamed-chunk-21-1.gif)&lt;!-- --&gt;
+]
+
+---
+
+## Recursos de interés
+
+.content-box-red[
+.small[
+&lt;P align=justify&gt;🤓 Si deseas ver un resumen de las posibilidades que ofrece el paquete `gganimate` y profundizar más en su uso, puedes mirar su hoja de trucos &lt;a href="Documentos/cheat_sheet_gganimate" class="export"&gt;aquí&lt;/a&gt;.&lt;/p&gt;
+]
+]
+
+&lt;br&gt;
+
+.content-box-yellow[
+.small[
+&lt;P align=justify&gt;🤔 Además de la función `transition_time()` y de la función `shadow_trail()`, existen otras funciones `transition_*` y `shadow_*` que permiten realizar ditintos gráficos animados. [Aquí](https://gganimate.com/reference/index.html) podrás encontrar una lista de esas funciones, así como también de otras funciones implementadas en el paquete gganimate.&lt;/p&gt;
+]
+]
+
+&lt;br&gt;
+
+.right[
+<i class="fas  fa-spinner fa-2x fa-spin "></i>
 ]
 
 ---
